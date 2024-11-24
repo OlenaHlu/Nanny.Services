@@ -1,11 +1,11 @@
-// import React from "react";
+import React from "react";
 
-// const HomePage: React.FC = () => {
-//   return (
-//     <div>
-//       <p>fgdss</p>
-//     </div>
-//   );
-// };
+const HomePage: React.FC = () => {
+  return (
+    <div>
+      <p>fgdss</p>
+    </div>
+  );
+};
 
-// export default HomePage;
+export default HomePage;
