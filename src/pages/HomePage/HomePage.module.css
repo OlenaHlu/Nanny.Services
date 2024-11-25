@@ -1,0 +1,11 @@
+.text {
+  color: aqua;
+}
+
+.header {
+  position: absolute;
+  width: 1184px;
+  background-color: antiquewhite;
+  top: 52px;
+  left: 128px;
+}
