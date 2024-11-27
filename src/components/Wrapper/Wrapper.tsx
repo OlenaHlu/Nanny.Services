@@ -6,11 +6,13 @@ type WrapperProps = {
 
 const Wrapper = ({ children }: WrapperProps) => {
   return (
-    <div className={css.wrapperContainer}>
-      <div className={css.leftSide}></div>
-      <div className={css.rightSide}></div>
-      {children}
-    </div>
+    <section>
+      <div className={css.wrapperContainer}>
+        <div className={css.leftSide}></div>
+        <div className={css.rightSide}></div>
+        {children}
+      </div>
+    </section>
   );
 };
 

@@ -10,7 +10,9 @@ const HomePage: React.FC = () => {
         <div className={css.header}>
           <Header />
         </div>
-        <p className={css.text}></p>
+        {/* <div>
+          <p>pppp</p>
+        </div> */}
       </Wrapper>
     </div>
   );
