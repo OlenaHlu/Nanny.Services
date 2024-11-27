@@ -1,33 +1,7 @@
 .wrapperContainer {
+  width: 1376px;
   height: 100%;
   padding: 32px;
   display: flex;
   flex-direction: row;
-}
-
-.leftSide {
-  background-color: var(--main);
-  width: 50%;
-  height: 736px;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
-
-.rightSide {
-  background-image: url("../../assets/bg-image@1x.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
-  width: 50%;
-  height: 736px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-
-@media (min-resolution: 192dpi),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  .rightSide {
-    background-image: url("../../assets/bg-image@2x.jpg");
-  }
 }

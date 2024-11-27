@@ -1,0 +1,7 @@
+.leftContainer {
+  background-color: var(--main);
+  width: 50%;
+  height: 736px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}

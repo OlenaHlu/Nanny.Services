@@ -1,0 +1,10 @@
+.rightContainer {
+  background-image: url("../../../assets/bg-image@1x.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  width: 50%;
+  height: 736px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
