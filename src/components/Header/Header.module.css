@@ -1,7 +1,14 @@
 .headerContainer {
+  max-width: 1248px;
+  height: 47px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  padding: 20px 96px;
   background-color: transparent;
   border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+}
+
+.logo {
+  margin-right: 487px;
 }

@@ -3,7 +3,6 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loader from "./components/Loader/Loader";
 // import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-// import Header from "./components/Header/Header";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 // const NanniesPage = lazy(() => import("./pages/NanniesPage/NanniesPage"));
@@ -13,7 +12,6 @@ const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const App: React.FC = () => {
   return (
     <>
-      {/* <Header /> */}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>

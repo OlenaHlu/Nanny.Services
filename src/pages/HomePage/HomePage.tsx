@@ -7,17 +7,15 @@ import RightSide from "../../components/HomePageComponents/RightSide/RightSide";
 
 const HomePage: React.FC = () => {
   return (
-    <>
+    <main className={css.homeContainer}>
       <div className={css.headerContainer}>
         <Header />
       </div>
-      <div className={css.wrapperContainer}>
-        <Wrapper>
-          <LeftSide />
-          <RightSide />
-        </Wrapper>
-      </div>
-    </>
+      <Wrapper>
+        <LeftSide />
+        <RightSide />
+      </Wrapper>
+    </main>
   );
 };
 

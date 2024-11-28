@@ -1,0 +1,6 @@
+.navList {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-right: 103px;
+}
