@@ -1,8 +1,7 @@
 .headerContainer {
   display: flex;
   align-items: center;
-  width: 1184px;
-  height: 48px;
+  width: 100%;
   background-color: transparent;
-  padding: 10px 0px;
+  border-bottom: 1px solid rgba(251, 251, 251, 0.4);
 }

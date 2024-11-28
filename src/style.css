@@ -16,8 +16,10 @@
 }
 
 body {
-  line-height: 1.5;
   font-family: "Open Sans", serif;
+  color: var(--bg-white);
+  line-height: 1.5;
+  font-size: 16px;
   box-sizing: border-box;
   height: 100vh;
   margin: 0;

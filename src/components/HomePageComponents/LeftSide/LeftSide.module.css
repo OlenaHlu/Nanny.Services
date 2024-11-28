@@ -5,3 +5,45 @@
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
+
+.leftContent {
+  width: 517px;
+  height: 322px;
+  padding-top: 251px;
+  padding-left: 96px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 1;
+  letter-spacing: -0.13125rem;
+  margin-bottom: 28px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.07;
+  letter-spacing: -0.035rem;
+  margin-bottom: 64px;
+}
+
+.link {
+  border: 1px solid rgba(251, 251, 251, 0.4);
+  border-radius: 30px;
+  padding: 18px 50px;
+  width: 230px;
+  height: 60px;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.0125rem;
+}
+
+.icon {
+  width: 15px;
+  height: 17px;
+  margin-left: 18px;
+}
