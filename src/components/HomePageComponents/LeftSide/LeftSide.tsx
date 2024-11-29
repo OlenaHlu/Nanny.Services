@@ -10,7 +10,14 @@ const LeftSide = () => {
         <p className={css.text}>Find Babysitters Online for All Occasions</p>
         <Link to="/nannies" className={css.link}>
           Get started
-          <Icon className={css.icon} iconName="arrow-up"></Icon>
+          <Icon
+            className={`${css.icon} ${css.iconDefault}`}
+            iconName="arrow-up"
+          />
+          <Icon
+            className={`${css.icon} ${css.iconHover}`}
+            iconName="arrow-left"
+          />
         </Link>
       </div>
     </div>

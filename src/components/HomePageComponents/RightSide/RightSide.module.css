@@ -4,7 +4,52 @@
   background-size: cover;
   overflow: hidden;
   width: 50%;
-  height: 736px;
+  height: 784px;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
+}
+
+.nannies {
+  width: 284px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 590px;
+  margin-left: 365px;
+  border-radius: 30px;
+  background-color: var(--bg-white);
+  padding: 32px 0px;
+}
+
+.iconContainer {
+  border-radius: 13px;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main);
+}
+
+.icon {
+  width: 20px;
+  height: 16px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 400;
+  color: var(--text-gray);
+}
+
+.text {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text);
 }

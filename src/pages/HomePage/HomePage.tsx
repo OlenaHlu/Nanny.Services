@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import Wrapper from "../../components/HomePageComponents/Wrapper/Wrapper";
 import Header from "../../components/Header/Header";
 import css from "./HomePage.module.css";
 import LeftSide from "../../components/HomePageComponents/LeftSide/LeftSide";
