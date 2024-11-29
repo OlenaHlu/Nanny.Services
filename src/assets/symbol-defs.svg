@@ -33,5 +33,9 @@
 <symbol id="icon-check" viewBox="0 0 40 32">
 <path fill="#fbfbfb" style="fill: var(--color1, #fbfbfb)" d="M5 11l-5 5 15 15 25-25-5-5-20 20-10-10z"></path>
 </symbol>
+<symbol id="icon-close" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M24 8l-16 16"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M8 8l16 16"></path>
+</symbol>
 </defs>
 </svg>
