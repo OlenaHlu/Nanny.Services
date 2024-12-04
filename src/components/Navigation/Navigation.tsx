@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Icon from "../common/Icon";
 import css from "./Navigation.module.css";
 import clsx from "clsx";
 
@@ -7,13 +8,30 @@ const Navigation = () => {
     <nav>
       <ul className={css.navList}>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink
+            className={({ isActive }) => clsx(css.link, isActive && css.active)}
+            to="/"
+          >
+            Home
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/nannies">Nannies</NavLink>
+          <NavLink
+            className={({ isActive }) => clsx(css.link, isActive && css.active)}
+            to="/nannies"
+          >
+            Nannies
+          </NavLink>
         </li>
         {/* <li>
-          <NavLink to="/favorites">Favorites</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              clsx(css.link, isActive && css.active)
+            }
+            to="/favorites"
+          >
+            Favorites
+          </NavLink>
         </li> */}
       </ul>
     </nav>
