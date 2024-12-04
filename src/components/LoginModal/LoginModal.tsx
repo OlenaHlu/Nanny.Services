@@ -2,7 +2,7 @@ import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import Icon from "../common/Icon";
 import { useState } from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
-import { useAppDispatch } from "../../redux/hooks";
+// import { useAppDispatch } from "../../redux/hooks";
 import Loader from "../Loader/Loader";
 
 import * as Yup from "yup";
