@@ -1,5 +1,6 @@
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import Icon from "../common/Icon";
+import { useState } from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useAppDispatch } from "../../redux/hooks";
 import Loader from "../Loader/Loader";
@@ -19,21 +20,26 @@ type LoginFormValues = {
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email format")
-    .min(7, "Too Short!")
-    .max(30, "Too Long!")
-    .required("Required!"),
+    .min(7, "Too Short")
+    .max(30, "Too Long")
+    .required(" Email Required"),
   password: Yup.string()
-    .min(7, "Too Short!")
-    .max(30, "Too Long!")
-    .required("Required!"),
+    .min(7, "Too Short")
+    .max(30, "Too Long")
+    .required("Password Required"),
 });
 
 const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
+  const [isVisiblePwd, setIsVisiblePwd] = useState<boolean>(false);
 
   const initialValues: LoginFormValues = {
     email: "",
     password: "",
+  };
+
+  const toggleVisiblePwd = () => {
+    setIsVisiblePwd(!isVisiblePwd);
   };
 
   function handleSubmit(values: LoginFormValues) {
@@ -55,11 +61,12 @@ const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {
-          ({ touched, isSubmitting } = (
-            <Form>
+        {({ isSubmitting }) => (
+          <Form>
+            <div className={css.formValues}>
               <div>
                 <Field
+                  className={css.input}
                   type="email"
                   id="email"
                   name="email"
@@ -72,24 +79,37 @@ const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
                 />
               </div>
               <div>
-                <Field
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Password'"
-                />
+                <div style={{ position: "relative" }}>
+                  <Field
+                    className={css.input}
+                    type={isVisiblePwd ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                  />
+                  <span
+                    onClick={toggleVisiblePwd}
+                    className={css.iconContainer}
+                  >
+                    {isVisiblePwd ? (
+                      <Icon className={css.iconPwd} iconName="eye" />
+                    ) : (
+                      <Icon className={css.iconPwd} iconName="eye-off" />
+                    )}
+                  </span>
+                </div>
                 <ErrorMessage
                   className={css.error}
-                  name="email"
+                  name="password"
                   component="div"
                 />
               </div>
-              <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? <Loader /> : "Log In"}
-              </button>
-            </Form>
-          ))
-        }
+            </div>
+            <button className={css.formBtn} type="submit">
+              {isSubmitting ? <Loader /> : "Log In"}
+            </button>
+          </Form>
+        )}
       </Formik>
     </ModalWrapper>
   );
