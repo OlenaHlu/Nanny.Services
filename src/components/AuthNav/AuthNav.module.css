@@ -17,6 +17,7 @@
 
 .regBtn {
   border-radius: 30px;
+  border: 1px solid rgba(251, 251, 251, 0.4);
   padding: 14px 41px;
   color: var(--bg-white);
   line-height: 1.25;

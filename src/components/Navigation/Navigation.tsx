@@ -4,30 +4,26 @@ import css from "./Navigation.module.css";
 import clsx from "clsx";
 
 const Navigation = () => {
+  function getClassActiveLink({ isActive }: { isActive: boolean }) {
+    return clsx(css.link, isActive && css.active);
+  }
+
   return (
     <nav>
       <ul className={css.navList}>
         <li>
-          <NavLink
-            className={({ isActive }) => clsx(css.link, isActive && css.active)}
-            to="/"
-          >
+          <NavLink className={getClassActiveLink} to="/">
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink
-            className={({ isActive }) => clsx(css.link, isActive && css.active)}
-            to="/nannies"
-          >
+          <NavLink className={getClassActiveLink} to="/nannies">
             Nannies
           </NavLink>
         </li>
         {/* <li>
           <NavLink
-            className={({ isActive }) =>
-              clsx(css.link, isActive && css.active)
-            }
+            className={getClassActiveLink}
             to="/favorites"
           >
             Favorites

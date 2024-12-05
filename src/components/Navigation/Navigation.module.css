@@ -3,33 +3,29 @@
   flex-direction: row;
   gap: 40px;
   margin-right: 92px;
-  position: relative;
 }
 
 .link {
+  position: relative;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.01rem;
   color: var(--bg-white);
 }
+.active {
+  font-weight: 600;
+  letter-spacing: 0.01rem;
+}
 
-.navList::after {
-  content: "";
+.link.active::after {
   position: absolute;
-  bottom: -12px;
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
+  left: 0;
+  bottom: -10px;
   border-radius: 50%;
-  background-color: var(--bg-gray);
-  transition: left 0.3s ease;
-  left: 12%;
-}
-
-.navList .link:nth-child(1).active ~ ::after {
-  left: 12%;
-}
-
-.navList .link:nth-child(2).active ~ ::after {
-  left: 76%;
+  left: 45%;
+  background-color: var(--bg-white);
+  content: "";
 }
