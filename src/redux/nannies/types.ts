@@ -6,17 +6,17 @@ export type Nanny = {
   avatar_url: string;
   birthday: string;
   experience: string;
-  reviews: Reviews[];
+  reviews: Review[];
   education: string;
   kids_age: string;
   price_per_hour: number;
   location: string;
   about: string;
-  characters: { [characters: string]: boolean };
+  characters: string[];
   rating: number;
 };
 
-export type Reviews = {
+export type Review = {
   reviewer: string;
   rating: number;
   comment: string;

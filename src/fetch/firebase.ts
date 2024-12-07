@@ -15,7 +15,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth: Auth = getAuth(app);
-const database: Database = getDatabase(app);
+const nanniesDB: Database = getDatabase(app);
 const db: Firestore = getFirestore(app);
 
-export { auth, database, db };
+export { auth, nanniesDB, db };
