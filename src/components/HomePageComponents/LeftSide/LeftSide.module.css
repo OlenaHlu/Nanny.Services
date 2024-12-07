@@ -4,6 +4,7 @@
   height: 784px;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+  color: var(--bg-white);
 }
 
 .leftContent {

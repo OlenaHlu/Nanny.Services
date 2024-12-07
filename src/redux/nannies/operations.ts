@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import type { Nanny } from "./types";
 
 axios.defaults.baseURL =
-  "https://nannyservices-e37ec-default-rtdb.firebaseio.com/";
+  "https://nannyservices-e37ec-default-rtdb.firebaseio.com";
 
 export const getNannies = createAsyncThunk<
   Nanny[],
@@ -11,12 +11,17 @@ export const getNannies = createAsyncThunk<
   { rejectValue: string }
 >("nannies/getAll", async (_, thunkAPI) => {
   try {
-    const response = await axios.get("/nannies");
-    return response.data;
+    const response = await axios.get("/nannies.json");
+    console.log("Response data from Firebase:", response.data);
+    if (!response.data) {
+      return [];
+    }
+    return Object.values(response.data);
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      console.error("Error fetching nannies:", error.message);
       return thunkAPI.rejectWithValue(
-        error.response?.data?.message || error.message
+        "Permission denied: Check your Firebase rules."
       );
     }
     return thunkAPI.rejectWithValue("An unknown error occurred");

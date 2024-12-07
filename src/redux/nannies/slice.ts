@@ -38,3 +38,5 @@ const nanniesSlice = createSlice({
       .addCase(getNannies.rejected, handleRejected);
   },
 });
+
+export const nanniesReducer = nanniesSlice.reducer;

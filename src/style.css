@@ -17,7 +17,7 @@
 
 body {
   font-family: "Open Sans", serif;
-  color: var(--bg-white);
+  color: var(--text);
   line-height: 1.5;
   font-size: 16px;
   box-sizing: border-box;

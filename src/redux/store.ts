@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {
   persistStore,
-  //   persistReducer,
+  // persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,16 +9,20 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
+import { nanniesReducer } from "./nannies/slice";
+import storage from "redux-persist/lib/storage";
 
 // const persistConfig = {
-//   key: "",
+//   key: "root",
 //   storage,
-//   whitelist: [""],
+//   whitelist: ["nannies"],
 // };
+// const persistedReducer = persistReducer(persistConfig, nanniesReducer);
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    nannies: nanniesReducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
