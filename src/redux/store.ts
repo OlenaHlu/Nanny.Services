@@ -10,6 +10,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import { nanniesReducer } from "./nannies/slice";
+import { filtersReducer } from "./filters/slice";
 import storage from "redux-persist/lib/storage";
 
 // const persistConfig = {
@@ -22,6 +23,7 @@ import storage from "redux-persist/lib/storage";
 export const store = configureStore({
   reducer: {
     nannies: nanniesReducer,
+    filters: filtersReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
