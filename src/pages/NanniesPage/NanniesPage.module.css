@@ -1,3 +1,7 @@
 .nanniesHeader {
   background-color: var(--main);
 }
+
+.nanniesContainer {
+  background-color: var(--bg-gray);
+}

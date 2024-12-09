@@ -9,7 +9,7 @@ type NanniesListProps = {
 
 const NanniesList = ({ nannies }: NanniesListProps) => {
   return (
-    <ul>
+    <ul className={css.nanniesList}>
       {nannies.map((nanny) => (
         <li key={nanny.id}>
           <NanniesCard nanny={nanny} />

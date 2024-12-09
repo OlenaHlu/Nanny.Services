@@ -33,8 +33,8 @@ const NanniesCard = ({ nanny }: NanniesCardProps) => {
 
   return (
     <div className={css.cardContainer}>
-      <div>
-        <img src={nanny.avatar_url} alt="" />
+      <div className={css.imgContainer}>
+        <img className={css.img} src={nanny.avatar_url} alt="nanny" />
       </div>
       <div>
         <div>
