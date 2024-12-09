@@ -34,9 +34,12 @@ const NanniesCard = ({ nanny }: NanniesCardProps) => {
   return (
     <div className={css.cardContainer}>
       <div className={css.imgContainer}>
-        <img className={css.img} src={nanny.avatar_url} alt="nanny" />
+        <div className={css.avatar}>
+          <img className={css.img} src={nanny.avatar_url} alt="nanny" />
+          <span className={css.status}></span>
+        </div>
       </div>
-      <div>
+      <div className={css.mainInfo}>
         <div>
           <p>nanny</p>
           <div>

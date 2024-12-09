@@ -1,6 +1,7 @@
 .cardContainer {
-  width: 1184px;
+  width: 1136px;
   display: flex;
+  flex-direction: row;
   background-color: var(--bg-white);
   margin-left: auto;
   margin-right: auto;
@@ -10,18 +11,34 @@
 }
 
 .imgContainer {
-  width: 120px;
-  height: 96px;
-  border: 2px solid var(--main-light);
+  position: relative;
+  border: 2px solid rgba(240, 63, 59, 0.2);
   border-radius: 30px;
+  width: 108px;
+  height: 108px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px;
 }
+
 .img {
-  border-radius: 15px;
   width: 96px;
   height: 96px;
-  object-fit: cover;
+  border-radius: 15px;
+}
+
+.status {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--price);
+  top: 16px;
+  right: 16px;
+  border: 2px solid var(--bg-white);
+}
+
+.mainInfo {
+  width: 992px;
 }
