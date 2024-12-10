@@ -4,6 +4,8 @@ import { SelectBoolean, SelectError, SelectString } from "../types";
 
 export const selectNannies = (state: RootState): Nanny[] =>
   state.nannies.nannies;
+export const selectVisibleCount = (state: RootState) =>
+  state.nannies.visibleCount;
 export const selectIsLoading: SelectBoolean = (state) =>
   state.nannies.isLoading;
 export const selectError: SelectError = (state) => state.nannies.error;

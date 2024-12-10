@@ -26,4 +26,5 @@ export type NanniesState = {
   nannies: Nanny[];
   isLoading: boolean;
   error: Error | string | null;
+  visibleCount: number;
 };

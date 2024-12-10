@@ -19,12 +19,20 @@ const initialState: NanniesState = {
   nannies: [],
   isLoading: false,
   error: null,
+  visibleCount: 3,
 };
 
 const nanniesSlice = createSlice({
   name: "nannies",
   initialState,
-  reducers: {},
+  reducers: {
+    loadMore: (state, action: PayloadAction<number>) => {
+      state.visibleCount += action.payload;
+    },
+    resetVisibleCount: (state) => {
+      state.visibleCount = 3;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getNannies.pending, handlePending)
@@ -39,4 +47,5 @@ const nanniesSlice = createSlice({
   },
 });
 
+export const { loadMore, resetVisibleCount } = nanniesSlice.actions;
 export const nanniesReducer = nanniesSlice.reducer;

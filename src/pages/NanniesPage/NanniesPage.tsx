@@ -2,15 +2,16 @@ import Header from "../../components/Header/Header";
 import NanniesList from "../../components/NanniesList/NanniesList";
 import FilterForm from "../../components/FilterForm/FilterForm";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getNannies } from "../../redux/nannies/operations";
 import {
   selectNannies,
   selectIsLoading,
   selectError,
+  selectVisibleCount,
 } from "../../redux/nannies/selectors";
 import { selectFilters } from "../../redux/filters/selectors";
+import { loadMore } from "../../redux/nannies/slice";
 import { nanniesDB } from "../../fetch/firebase";
 
 import css from "./NanniesPage.module.css";
@@ -19,6 +20,7 @@ const NanniesPage: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const nannies = useAppSelector(selectNannies);
+  const visibleCount = useAppSelector(selectVisibleCount);
   const filters = useAppSelector(selectFilters);
   const isLoading = useAppSelector(selectIsLoading);
   const error = useAppSelector(selectError);
@@ -52,10 +54,10 @@ const NanniesPage: React.FC = () => {
     })
     .filter((nanny) => {
       if (filters === "Less than 17$") {
-        return nanny.price_per_hour < 17;
+        return nanny.price_per_hour <= 17;
       }
       if (filters === "Greater than 17$") {
-        return nanny.price_per_hour >= 17;
+        return nanny.price_per_hour > 17;
       }
 
       return true;
@@ -65,6 +67,10 @@ const NanniesPage: React.FC = () => {
     dispatch(getNannies());
   }, [dispatch]);
 
+  const handleLoadMore = () => {
+    dispatch(loadMore(3));
+  };
+
   return (
     <>
       <div className={css.nanniesHeader}>
@@ -72,7 +78,12 @@ const NanniesPage: React.FC = () => {
       </div>
       <main className={css.nanniesContainer}>
         <FilterForm />
-        <NanniesList nannies={filteredNannies} />
+        <NanniesList nannies={filteredNannies.slice(0, visibleCount)} />
+        {visibleCount < filteredNannies.length && !isLoading && (
+          <button className={css.loadBtn} onClick={handleLoadMore}>
+            Load More
+          </button>
+        )}
       </main>
     </>
   );

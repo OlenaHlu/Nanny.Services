@@ -4,4 +4,33 @@
 
 .nanniesContainer {
   background-color: var(--bg-gray);
+  padding-bottom: 32px;
+}
+
+.loadBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 64px;
+
+  border-radius: 30px;
+  padding: 14px 40px;
+  width: 159px;
+  height: 48px;
+  background-color: var(--main);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01rem;
+  color: var(--bg-white);
+  transition: background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loadBtn:hover {
+  background-color: var(--main-light);
+  border: 1px solid var(--main);
+  color: var(--main);
 }
