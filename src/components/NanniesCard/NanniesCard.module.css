@@ -42,3 +42,128 @@
 .mainInfo {
   width: 992px;
 }
+
+.headerCard {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-light-gray);
+}
+
+.listContainer {
+  display: flex;
+  margin-bottom: 8px;
+}
+.listHeader {
+  display: flex;
+  gap: 16px;
+  margin-right: 48px;
+}
+
+.listItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.stick {
+  color: rgba(17, 16, 28, 0.2);
+}
+
+.iconMap {
+  width: 16px;
+  height: 16px;
+  stroke: var(--text);
+  fill: var(--bg-white);
+  margin-right: 6px;
+}
+
+.iconStar {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.price {
+  color: var(--price);
+  margin-left: 6px;
+}
+
+.iconHeart {
+  width: 26px;
+  height: 22px;
+  fill: none;
+  stroke: var(--text);
+}
+
+.name {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.nannyInfoList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.nannyInfoItem {
+  display: flex;
+  height: 24px;
+  border-radius: 24px;
+  padding: 8px 16px;
+  background-color: var(--bg-gray);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-light-gray);
+}
+
+.info {
+  color: var(--text);
+  margin-left: 4px;
+}
+
+.charactersList {
+  display: flex;
+  gap: 10px;
+  margin-left: 8px;
+  text-decoration: underline;
+  color: var(--text);
+}
+
+.nunnyAbout {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--text-gray);
+  margin-bottom: 14px;
+}
+
+.readMore {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--text);
+  transition: font-size 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.readMore:hover {
+  font-size: 17px;
+}

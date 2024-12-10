@@ -1,6 +1,7 @@
 import type { Nanny } from "../../redux/nannies/types";
 import ReviewsList from "./ReviewsList/ReviewsList";
 import { useCallback, useState } from "react";
+import Icon from "../common/Icon";
 
 import css from "./NanniesCard.module.css";
 
@@ -31,6 +32,22 @@ const NanniesCard = ({ nanny }: NanniesCardProps) => {
     rating,
   } = nanny;
 
+  const calculateAge = (birthDate: string): number => {
+    const birth = new Date(birthDate);
+    const today = new Date();
+
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birth.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
+
   return (
     <div className={css.cardContainer}>
       <div className={css.imgContainer}>
@@ -40,38 +57,63 @@ const NanniesCard = ({ nanny }: NanniesCardProps) => {
         </div>
       </div>
       <div className={css.mainInfo}>
-        <div>
-          <p>nanny</p>
-          <div>
-            <ul>
-              <li>{nanny.location}</li>
-              <li>{nanny.rating}</li>
-              <li>Price / 1 hour: {nanny.price_per_hour}$</li>
-            </ul>
-          </div>
-          <button>*heart*</button>
-        </div>
-        <h3>{nanny.name}</h3>
-        <div>
-          <div>
-            <ul>
-              <li>Age: {nanny.birthday}</li>
-              <li>Experience: {nanny.experience}</li>
-              <li>Kids Age: {nanny.kids_age}</li>
-              <li>
-                Characters:
-                <ul>
-                  {nanny.characters.map((char, index) => (
-                    <li key={index}>{char}</li>
-                  ))}
-                </ul>
+        <div className={css.headerCard}>
+          <p className={css.text}>nanny</p>
+          <div className={css.listContainer}>
+            <ul className={css.listHeader}>
+              <li className={css.listItem}>
+                <Icon className={css.iconMap} iconName="map-pin" />
+                {nanny.location}{" "}
               </li>
-              <li>Education: {nanny.education}</li>
+              <span className={css.stick}>|</span>
+              <li className={css.listItem}>
+                <Icon className={css.iconStar} iconName="star" />
+                {nanny.rating}
+              </li>
+              <span className={css.stick}> |</span>
+              <li className={css.listItem}>
+                Price / 1 hour:{" "}
+                <span className={css.price}>{nanny.price_per_hour}$</span>
+              </li>
             </ul>
+            <button>
+              <Icon iconName="heart-normal" className={css.iconHeart} />
+            </button>
           </div>
-          <p>{nanny.about}</p>
         </div>
-        {!isOpenMore && <button onClick={toggleBtnMore}>Read more</button>}
+        <h3 className={css.name}>{nanny.name}</h3>
+        <div>
+          <ul className={css.nannyInfoList}>
+            <li className={css.nannyInfoItem}>
+              Age:{" "}
+              <span className={css.info}>{calculateAge(nanny.birthday)}</span>
+            </li>
+            <li className={css.nannyInfoItem}>
+              Experience: <span className={css.info}>{nanny.experience}</span>
+            </li>
+            <li className={css.nannyInfoItem}>
+              Kids Age: <span className={css.info}>{nanny.kids_age}</span>
+            </li>
+            <li className={css.nannyInfoItem}>
+              Characters:
+              <ul className={css.charactersList}>
+                {nanny.characters.map((char, index) => (
+                  <li key={index}>{char}</li>
+                ))}
+              </ul>
+            </li>
+            <li className={css.nannyInfoItem}>
+              Education: <span className={css.info}>{nanny.education}</span>
+            </li>
+          </ul>
+        </div>
+        <p className={css.nunnyAbout}>{nanny.about}</p>
+
+        {!isOpenMore && (
+          <button className={css.readMore} onClick={toggleBtnMore}>
+            Read more
+          </button>
+        )}
         {isOpenMore && (
           <div>
             <ReviewsList reviews={reviews} />
