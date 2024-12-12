@@ -10,12 +10,3 @@
   align-items: center;
   z-index: 1000;
 }
-
-.modalContent {
-  background-color: var(--bg-white);
-  padding: 64px;
-  border-radius: 30px;
-  width: 438px;
-  position: relative;
-  color: black;
-}

@@ -2,6 +2,7 @@ import type { Nanny } from "../../redux/nannies/types";
 import ReviewsList from "./ReviewsList/ReviewsList";
 import { useCallback, useState } from "react";
 import Icon from "../common/Icon";
+import OrderModal from "../OrderModal/OrderModal";
 
 import css from "./NanniesCard.module.css";
 
@@ -11,6 +12,15 @@ type NanniesCardProps = {
 
 const NanniesCard = ({ nanny }: NanniesCardProps) => {
   const [isOpenMore, setIsOpenMore] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const openOrderModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeOrderModal = () => {
+    setIsModalOpen(false);
+  };
 
   const toggleBtnMore = useCallback(() => {
     setIsOpenMore(!isOpenMore);
@@ -119,7 +129,16 @@ const NanniesCard = ({ nanny }: NanniesCardProps) => {
             <div className={css.reviewsContainer}>
               <ReviewsList reviews={reviews} />
             </div>
-            <button className={css.orderBtn}>Make an appointment</button>
+            <button className={css.orderBtn} onClick={openOrderModal}>
+              Make an appointment
+            </button>
+            {isModalOpen && (
+              <OrderModal
+                name={nanny.name}
+                image={nanny.avatar_url}
+                closeModal={closeOrderModal}
+              />
+            )}
           </>
         )}
       </div>

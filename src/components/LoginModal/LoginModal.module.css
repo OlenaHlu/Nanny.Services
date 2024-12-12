@@ -1,6 +1,19 @@
+.modalContent {
+  background-color: var(--bg-white);
+  padding: 64px;
+  border-radius: 30px;
+  width: 438px;
+  position: relative;
+  color: black;
+}
+
 .close {
   width: 20px;
   height: 20px;
+
+  position: absolute;
+  right: 28px;
+  top: 28px;
 }
 
 .icon {
@@ -16,12 +29,6 @@
 
 .icon:hover {
   stroke: var(--main);
-}
-
-.close {
-  position: absolute;
-  right: 28px;
-  top: 28px;
 }
 
 .formTitle {

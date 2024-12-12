@@ -1,0 +1,32 @@
+.modalContent {
+  background-color: var(--bg-white);
+  padding: 64px;
+  border-radius: 30px;
+  width: 471px;
+  position: relative;
+  color: black;
+}
+
+.close {
+  width: 32px;
+  height: 32px;
+
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: black;
+  cursor: pointer;
+  transition: stroke 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon:hover {
+  stroke: var(--main);
+}
