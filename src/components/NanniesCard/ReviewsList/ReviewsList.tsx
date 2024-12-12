@@ -1,8 +1,6 @@
 import ReviewsItems from "../ReviewsItems/ReviewsItems";
 import type { Nanny } from "../../../redux/nannies/types";
 
-import css from "./ReviewsList.module.css";
-
 type ReviewsItemsProps = Pick<Nanny, "reviews">;
 
 const ReviewsList = ({ reviews }: ReviewsItemsProps) => {

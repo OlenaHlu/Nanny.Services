@@ -10,7 +10,7 @@ type NanniesCardProps = {
 };
 
 const NanniesCard = ({ nanny }: NanniesCardProps) => {
-  const [isOpenMore, setIsOpenMore] = useState(false);
+  const [isOpenMore, setIsOpenMore] = useState<boolean>(false);
 
   const toggleBtnMore = useCallback(() => {
     setIsOpenMore(!isOpenMore);
@@ -115,10 +115,12 @@ const NanniesCard = ({ nanny }: NanniesCardProps) => {
           </button>
         )}
         {isOpenMore && (
-          <div>
-            <ReviewsList reviews={reviews} />
-            <button>Make an appointment</button>
-          </div>
+          <>
+            <div className={css.reviewsContainer}>
+              <ReviewsList reviews={reviews} />
+            </div>
+            <button className={css.orderBtn}>Make an appointment</button>
+          </>
         )}
       </div>
     </div>

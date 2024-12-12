@@ -1,0 +1,62 @@
+.rewievList {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.imageContainer {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--main-light);
+}
+.initialName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--main);
+}
+
+.rewierInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reviewerName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.reviewerRating {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--text);
+
+  display: flex;
+  align-items: center;
+}
+
+.ratingIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--text-gray);
+  margin-bottom: 25px;
+}
