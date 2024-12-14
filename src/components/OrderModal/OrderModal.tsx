@@ -14,7 +14,7 @@ type OrderModalProps = {
 };
 
 type OrderModalValues = {
-  addres: string;
+  address: string;
   phone: string;
   age: string;
   time: string;
@@ -24,7 +24,7 @@ type OrderModalValues = {
 };
 
 const validationOrderSchema = Yup.object().shape({
-  addres: Yup.string()
+  address: Yup.string()
     .min(5, "Address must be at least 5 characters long")
     .required("Address is Required"),
   phone: Yup.string()
@@ -50,7 +50,7 @@ const validationOrderSchema = Yup.object().shape({
 
 const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
   const initialValues: OrderModalValues = {
-    addres: "",
+    address: "",
     phone: "",
     age: "",
     time: "",
@@ -70,20 +70,18 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
           <Icon className={css.icon} iconName="close" />
         </span>
         <h2 className={css.formTitle}>Make an appointment with a babysitter</h2>
-        <p>
+        <p className={css.formText}>
           Arranging a meeting with a caregiver for your child is the first step
           to creating a safe and comfortable environment. Fill out the form
           below so we can match you with the perfect care partner.
         </p>
-        <ul>
-          <li>
-            <img src={image} alt="avatar" />
-          </li>
-          <li>
-            <p>Your nanny</p>
-            <h4>{name}</h4>
-          </li>
-        </ul>
+        <div className={css.nannyContent}>
+          <img className={css.image} src={image} alt="avatar" />
+          <div>
+            <p className={css.nannyText}>Your nanny</p>
+            <h4 className={css.nannyName}>{name}</h4>
+          </div>
+        </div>
         <Formik
           initialValues={initialValues}
           validationSchema={validationOrderSchema}
@@ -99,7 +97,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
                   placeholder="Address"
                 />
                 <ErrorMessage
-                  className={css.errorUpp}
+                  className={css.error}
                   name="address"
                   component="div"
                 />
@@ -110,7 +108,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
                   placeholder="Child's age"
                 />
                 <ErrorMessage
-                  className={css.errorUpp}
+                  className={css.error}
                   name="age"
                   component="div"
                 />
@@ -123,7 +121,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
                   placeholder="+380"
                 />
                 <ErrorMessage
-                  className={css.errorUpp}
+                  className={css.error}
                   name="phone"
                   component="div"
                 />
@@ -134,7 +132,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
                   placeholder="00:00"
                 />
                 <ErrorMessage
-                  className={css.errorUpp}
+                  className={css.error}
                   name="time"
                   component="div"
                 />
@@ -148,7 +146,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
                 placeholder="Email"
               />
               <ErrorMessage
-                className={css.errorLow}
+                className={css.error}
                 name="email"
                 component="div"
               />
@@ -158,25 +156,21 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
                 name="name"
                 placeholder="Father's or mother's name"
               />
-              <ErrorMessage
-                className={css.errorLow}
-                name="name"
-                component="div"
-              />
+              <ErrorMessage className={css.error} name="name" component="div" />
               <Field
-                className={css.lowerInput}
+                className={css.textarea}
                 type="text"
                 as="textarea"
                 name="comment"
                 placeholder="Comment"
               />
               <ErrorMessage
-                className={css.errorLow}
+                className={css.error}
                 name="comment"
                 component="div"
               />
             </div>
-            <button>Send</button>
+            <button className={css.sendBtn}>Send</button>
           </Form>
         </Formik>
       </div>

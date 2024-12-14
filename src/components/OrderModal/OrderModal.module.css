@@ -1,4 +1,6 @@
 .modalContent {
+  /* max-width: 90%;
+  max-height: 90%; */
   background-color: var(--bg-white);
   padding: 64px;
   border-radius: 30px;
@@ -30,10 +32,97 @@
 .icon:hover {
   stroke: var(--main);
 }
+
+.formTitle {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.05rem;
+  color: #11101c;
+  margin-bottom: 20px;
+}
+
+.formText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--text-gray);
+  margin-bottom: 40px;
+}
+
+.nannyContent {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.image {
+  width: 44px;
+  height: 44px;
+  border-radius: 15px;
+}
+
+.nannyText {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--text-light-gray);
+}
+
+.nannyName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
 .upperContainer {
   display: flex;
   flex-direction: row;
   gap: 8px;
+}
+
+.UpperInput {
+  border: 1px solid rgba(17, 16, 28, 0.1);
+  border-radius: 12px;
+  padding: 16px 15px 16px 18px;
+  width: 199px;
+  height: 20px;
+  outline: transparent;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.lowerInput {
+  border: 1px solid rgba(17, 16, 28, 0.1);
+  border-radius: 12px;
+  padding: 16px 41px 16px 18px;
+  width: 413px;
+  height: 20px;
+  outline: transparent;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.textarea {
+  border: 1px solid rgba(17, 16, 28, 0.1);
+  border-radius: 12px;
+  padding: 16px 38px 80px 18px;
+  width: 416px;
+  height: 20px;
+  outline: transparent;
+  resize: none;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--text);
 }
 
 .leftUppContainer,
@@ -50,4 +139,36 @@
   gap: 16px;
   margin-top: 16px;
   margin-bottom: 40px;
+}
+
+.sendBtn {
+  border-radius: 30px;
+  padding: 16px 217px;
+  width: 472px;
+  height: 52px;
+
+  background-color: var(--main);
+  color: var(--bg-white);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01rem;
+
+  transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sendBtn:hover {
+  background-color: var(--main-light);
+  color: var(--main);
+  border: 1px solid var(--main);
+}
+
+.error {
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+  color: var(--main);
 }
