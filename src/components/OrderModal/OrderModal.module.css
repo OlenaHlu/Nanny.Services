@@ -30,3 +30,24 @@
 .icon:hover {
   stroke: var(--main);
 }
+.upperContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.leftUppContainer,
+.rightUppContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 232px;
+}
+
+.lowerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 40px;
+}

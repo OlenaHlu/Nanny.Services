@@ -22,11 +22,11 @@ const validationSchema = Yup.object().shape({
     .email("Invalid email format")
     .min(7, "Too Short")
     .max(30, "Too Long")
-    .required(" Email Required"),
+    .required("Email is Required"),
   password: Yup.string()
     .min(7, "Too Short")
     .max(30, "Too Long")
-    .required("Password Required"),
+    .required("Password is Required"),
 });
 
 const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
