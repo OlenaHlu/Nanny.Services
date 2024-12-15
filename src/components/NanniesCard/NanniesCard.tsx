@@ -108,7 +108,7 @@ const NanniesCard = ({ nanny }: NanniesCardProps) => {
               Characters:
               <ul className={css.charactersList}>
                 {nanny.characters.map((char, index) => (
-                  <li key={index}>{char}</li>
+                  <li key={index}>{char},</li>
                 ))}
               </ul>
             </li>

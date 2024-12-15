@@ -1,12 +1,14 @@
 .modalContent {
-  /* max-width: 90%;
-  max-height: 90%; */
   background-color: var(--bg-white);
   padding: 64px;
   border-radius: 30px;
   width: 471px;
   position: relative;
   color: black;
+  margin-top: 120px;
+  margin-bottom: 120px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .close {
@@ -94,6 +96,15 @@
   font-size: 16px;
   line-height: 1.25;
   color: var(--text);
+}
+
+.UpperInput::placeholder,
+.lowerInput::placeholder,
+.textarea::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--text-gray);
 }
 
 .lowerInput {
