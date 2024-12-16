@@ -1,5 +1,5 @@
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import Icon from "../common/Icon";
 
@@ -49,6 +49,10 @@ const validationOrderSchema = Yup.object().shape({
 });
 
 const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
+  const [isTimeOpen, setIsTimeOpen] = useState(false);
+  //   const [selectedTime, setSelectedTime] = useState("00:00");
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   const initialValues: OrderModalValues = {
     address: "",
     phone: "",
@@ -58,6 +62,15 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
     parentsName: "",
     comment: "",
   };
+
+  const times = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00"];
+
+  const toggleDropdown = () => setIsTimeOpen((prev) => !prev);
+
+  //   const handleTimesClick = (time: string) => {
+  //     setSelectedTime(time);
+  //     setIsTimeOpen(false);
+  //   };
 
   function handleSubmit(values: OrderModalValues) {
     console.log("Form Submitted:", values);
@@ -87,91 +100,126 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
           validationSchema={validationOrderSchema}
           onSubmit={handleSubmit}
         >
-          <Form>
-            <div className={css.upperContainer}>
-              <div className={css.leftUppContainer}>
+          {({ setFieldValue }) => (
+            <Form>
+              <div className={css.upperContainer}>
+                <div className={css.leftUppContainer}>
+                  <Field
+                    className={css.UpperInput}
+                    type="text"
+                    name="address"
+                    placeholder="Address"
+                  />
+                  <ErrorMessage
+                    className={css.error}
+                    name="address"
+                    component="div"
+                  />
+                  <Field
+                    className={css.UpperInput}
+                    type="text"
+                    name="age"
+                    placeholder="Child's age"
+                  />
+                  <ErrorMessage
+                    className={css.error}
+                    name="age"
+                    component="div"
+                  />
+                </div>
+                <div className={css.rightUppContainer}>
+                  <Field
+                    className={css.UpperInput}
+                    type="text"
+                    name="phone"
+                    placeholder="+380"
+                  />
+                  <ErrorMessage
+                    className={css.error}
+                    name="phone"
+                    component="div"
+                  />
+                  <div className={css.inputTime} ref={dropdownRef}>
+                    <Field
+                      className={css.UpperInput}
+                      type="text"
+                      name="time"
+                      placeholder="00:00"
+                      readOnly
+                    />
+                    <button
+                      className={css.iconBtn}
+                      type="button"
+                      onClick={toggleDropdown}
+                    >
+                      <Icon className={css.iconClock} iconName="clock" />
+                    </button>
+
+                    {isTimeOpen && (
+                      <div className={css.dropDown}>
+                        <p className={css.meeting}>Meeting time</p>
+                        <ul>
+                          {times.map((time) => (
+                            <li
+                              key={time}
+                              onClick={() => {
+                                setFieldValue("time", time);
+                                setIsTimeOpen(false);
+                              }}
+                            >
+                              {time}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    <ErrorMessage
+                      className={css.error}
+                      name="time"
+                      component="div"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className={css.lowerContainer}>
                 <Field
-                  className={css.UpperInput}
+                  className={css.lowerInput}
                   type="text"
-                  name="address"
-                  placeholder="Address"
+                  name="email"
+                  placeholder="Email"
                 />
                 <ErrorMessage
                   className={css.error}
-                  name="address"
+                  name="email"
                   component="div"
                 />
                 <Field
-                  className={css.UpperInput}
+                  className={css.lowerInput}
                   type="text"
-                  name="age"
-                  placeholder="Child's age"
+                  name="name"
+                  placeholder="Father's or mother's name"
                 />
                 <ErrorMessage
                   className={css.error}
-                  name="age"
+                  name="name"
+                  component="div"
+                />
+                <Field
+                  className={css.textarea}
+                  type="text"
+                  as="textarea"
+                  name="comment"
+                  placeholder="Comment"
+                />
+                <ErrorMessage
+                  className={css.error}
+                  name="comment"
                   component="div"
                 />
               </div>
-              <div className={css.rightUppContainer}>
-                <Field
-                  className={css.UpperInput}
-                  type="text"
-                  name="phone"
-                  placeholder="+380"
-                />
-                <ErrorMessage
-                  className={css.error}
-                  name="phone"
-                  component="div"
-                />
-                <Field
-                  className={css.UpperInput}
-                  type="text"
-                  name="time"
-                  placeholder="00:00"
-                />
-                <ErrorMessage
-                  className={css.error}
-                  name="time"
-                  component="div"
-                />
-              </div>
-            </div>
-            <div className={css.lowerContainer}>
-              <Field
-                className={css.lowerInput}
-                type="text"
-                name="email"
-                placeholder="Email"
-              />
-              <ErrorMessage
-                className={css.error}
-                name="email"
-                component="div"
-              />
-              <Field
-                className={css.lowerInput}
-                type="text"
-                name="name"
-                placeholder="Father's or mother's name"
-              />
-              <ErrorMessage className={css.error} name="name" component="div" />
-              <Field
-                className={css.textarea}
-                type="text"
-                as="textarea"
-                name="comment"
-                placeholder="Comment"
-              />
-              <ErrorMessage
-                className={css.error}
-                name="comment"
-                component="div"
-              />
-            </div>
-            <button className={css.sendBtn}>Send</button>
-          </Form>
+              <button className={css.sendBtn}>Send</button>
+            </Form>
+          )}
         </Formik>
       </div>
     </ModalWrapper>
