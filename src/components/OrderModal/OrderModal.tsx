@@ -1,5 +1,5 @@
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import Icon from "../common/Icon";
 
@@ -28,15 +28,13 @@ const validationOrderSchema = Yup.object().shape({
     .min(5, "Address must be at least 5 characters long")
     .required("Address is Required"),
   phone: Yup.string()
-    .matches(/^[0-9+]{10,15}$/)
+    .matches(/^[0-9+]{10,15}$/, "Invalid phone number")
     .required("Phone is Required"),
   age: Yup.number()
     .typeError("Age must be a number")
     .max(100, "Maximum age is 15")
     .required("Age is required"),
-  time: Yup.string()
-    .matches(/^([01]\d|2[0-3]):([0-5]\d)$/, "Time must be in hh:mm format")
-    .required("Time is required"),
+  time: Yup.string().required("Time is required"),
   email: Yup.string()
     .email("Invalid email format")
     .min(7, "Too Short")
@@ -50,7 +48,6 @@ const validationOrderSchema = Yup.object().shape({
 
 const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
   const [isTimeOpen, setIsTimeOpen] = useState(false);
-  //   const [selectedTime, setSelectedTime] = useState("00:00");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const initialValues: OrderModalValues = {
@@ -63,14 +60,17 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
     comment: "",
   };
 
-  const times = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00"];
+  const times = [
+    "09 : 00",
+    "09 : 30",
+    "10 : 00",
+    "10 : 30",
+    "11 : 00",
+    "11 : 30",
+    "12 : 00",
+  ];
 
   const toggleDropdown = () => setIsTimeOpen((prev) => !prev);
-
-  //   const handleTimesClick = (time: string) => {
-  //     setSelectedTime(time);
-  //     setIsTimeOpen(false);
-  //   };
 
   function handleSubmit(values: OrderModalValues) {
     console.log("Form Submitted:", values);
@@ -104,44 +104,50 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
             <Form>
               <div className={css.upperContainer}>
                 <div className={css.leftUppContainer}>
-                  <Field
-                    className={css.UpperInput}
-                    type="text"
-                    name="address"
-                    placeholder="Address"
-                  />
-                  <ErrorMessage
-                    className={css.error}
-                    name="address"
-                    component="div"
-                  />
-                  <Field
-                    className={css.UpperInput}
-                    type="text"
-                    name="age"
-                    placeholder="Child's age"
-                  />
-                  <ErrorMessage
-                    className={css.error}
-                    name="age"
-                    component="div"
-                  />
+                  <div className={css.inputDiv}>
+                    <Field
+                      className={css.upperInput}
+                      type="text"
+                      name="address"
+                      placeholder="Address"
+                    />
+                    <ErrorMessage
+                      className={css.error}
+                      name="address"
+                      component="div"
+                    />
+                  </div>
+                  <div className={css.inputDiv}>
+                    <Field
+                      className={css.upperInput}
+                      type="text"
+                      name="age"
+                      placeholder="Child's age"
+                    />
+                    <ErrorMessage
+                      className={css.error}
+                      name="age"
+                      component="div"
+                    />
+                  </div>
                 </div>
                 <div className={css.rightUppContainer}>
-                  <Field
-                    className={css.UpperInput}
-                    type="text"
-                    name="phone"
-                    placeholder="+380"
-                  />
-                  <ErrorMessage
-                    className={css.error}
-                    name="phone"
-                    component="div"
-                  />
+                  <div className={css.inputDiv}>
+                    <Field
+                      className={css.upperInput}
+                      type="text"
+                      name="phone"
+                      placeholder="+380"
+                    />
+                    <ErrorMessage
+                      className={css.error}
+                      name="phone"
+                      component="div"
+                    />
+                  </div>
                   <div className={css.inputTime} ref={dropdownRef}>
                     <Field
-                      className={css.UpperInput}
+                      className={css.upperInput}
                       type="text"
                       name="time"
                       placeholder="00:00"
@@ -158,10 +164,11 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
                     {isTimeOpen && (
                       <div className={css.dropDown}>
                         <p className={css.meeting}>Meeting time</p>
-                        <ul>
+                        <ul className={css.timeList}>
                           {times.map((time) => (
                             <li
                               key={time}
+                              className={css.timeItem}
                               onClick={() => {
                                 setFieldValue("time", time);
                                 setIsTimeOpen(false);
@@ -182,40 +189,46 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
                 </div>
               </div>
               <div className={css.lowerContainer}>
-                <Field
-                  className={css.lowerInput}
-                  type="text"
-                  name="email"
-                  placeholder="Email"
-                />
-                <ErrorMessage
-                  className={css.error}
-                  name="email"
-                  component="div"
-                />
-                <Field
-                  className={css.lowerInput}
-                  type="text"
-                  name="name"
-                  placeholder="Father's or mother's name"
-                />
-                <ErrorMessage
-                  className={css.error}
-                  name="name"
-                  component="div"
-                />
-                <Field
-                  className={css.textarea}
-                  type="text"
-                  as="textarea"
-                  name="comment"
-                  placeholder="Comment"
-                />
-                <ErrorMessage
-                  className={css.error}
-                  name="comment"
-                  component="div"
-                />
+                <div className={css.inputDiv}>
+                  <Field
+                    className={css.lowerInput}
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                  />
+                  <ErrorMessage
+                    className={css.error}
+                    name="email"
+                    component="div"
+                  />
+                </div>
+                <div className={css.inputDiv}>
+                  <Field
+                    className={css.lowerInput}
+                    type="text"
+                    name="name"
+                    placeholder="Father's or mother's name"
+                  />
+                  <ErrorMessage
+                    className={css.error}
+                    name="name"
+                    component="div"
+                  />
+                </div>
+                <div className={css.inputDiv}>
+                  <Field
+                    className={css.textarea}
+                    type="text"
+                    as="textarea"
+                    name="comment"
+                    placeholder="Comment"
+                  />
+                  <ErrorMessage
+                    className={css.error}
+                    name="comment"
+                    component="div"
+                  />
+                </div>
               </div>
               <button className={css.sendBtn}>Send</button>
             </Form>

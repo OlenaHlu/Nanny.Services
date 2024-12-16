@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import Icon from "../common/Icon";
+import { useEffect, useState } from "react";
 import css from "./ModalWrapper.module.css";
 
 type ModalWrapperProps = {
@@ -11,7 +10,11 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
   closeModal,
   children,
 }: ModalWrapperProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
+    const timer = setTimeout(() => setIsOpen(true), 10);
+
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         closeModal();
@@ -22,6 +25,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
+      clearTimeout(timer);
     };
   }, [closeModal]);
 
@@ -32,8 +36,11 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
   };
 
   return (
-    <div className={css.modal} onClick={handleBackdropClick}>
-      <div className={css.modalContent}> {children}</div>
+    <div
+      className={`${css.modal} ${isOpen ? css.open : ""}`}
+      onClick={handleBackdropClick}
+    >
+      <div> {children}</div>
     </div>
   );
 };
