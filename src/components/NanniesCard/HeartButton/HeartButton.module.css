@@ -1,0 +1,11 @@
+.iconHeart {
+  width: 26px;
+  height: 22px;
+  fill: none;
+  stroke: var(--text);
+}
+
+.iconHeartSelected {
+  fill: var(--main);
+  stroke: var(--main);
+}

@@ -11,6 +11,7 @@ import {
 } from "redux-persist";
 import { nanniesReducer } from "./nannies/slice";
 import { filtersReducer } from "./filters/slice";
+import { favoritesReducer } from "./favorites/slice";
 import storage from "redux-persist/lib/storage";
 
 // const persistConfig = {
@@ -24,6 +25,7 @@ export const store = configureStore({
   reducer: {
     nannies: nanniesReducer,
     filters: filtersReducer,
+    favorites: favoritesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

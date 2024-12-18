@@ -3,14 +3,16 @@ import ReviewsList from "./ReviewsList/ReviewsList";
 import { useCallback, useState } from "react";
 import Icon from "../common/Icon";
 import OrderModal from "../OrderModal/OrderModal";
+import HeartButton from "./HeartButton/HeartButton";
 
 import css from "./NanniesCard.module.css";
 
 type NanniesCardProps = {
   nanny: Nanny;
+  // isAuthenticated: boolean;
 };
 
-const NanniesCard = ({ nanny }: NanniesCardProps) => {
+const NanniesCard = ({ nanny, isAuthenticated }: NanniesCardProps) => {
   const [isOpenMore, setIsOpenMore] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -86,9 +88,7 @@ const NanniesCard = ({ nanny }: NanniesCardProps) => {
                 <span className={css.price}>{nanny.price_per_hour}$</span>
               </li>
             </ul>
-            <button>
-              <Icon iconName="heart-normal" className={css.iconHeart} />
-            </button>
+            <HeartButton nannyId={nanny.id} isAuthenticated={isAuthenticated} />
           </div>
         </div>
         <h3 className={css.name}>{nanny.name}</h3>

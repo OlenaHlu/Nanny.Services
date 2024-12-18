@@ -98,13 +98,6 @@
   margin-left: 6px;
 }
 
-.iconHeart {
-  width: 26px;
-  height: 22px;
-  fill: none;
-  stroke: var(--text);
-}
-
 .name {
   font-weight: 500;
   font-size: 24px;
