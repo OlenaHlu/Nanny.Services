@@ -9,7 +9,7 @@ import css from "./NanniesCard.module.css";
 
 type NanniesCardProps = {
   nanny: Nanny;
-  // isAuthenticated: boolean;
+  isAuthenticated: boolean;
 };
 
 const NanniesCard = ({ nanny, isAuthenticated }: NanniesCardProps) => {
