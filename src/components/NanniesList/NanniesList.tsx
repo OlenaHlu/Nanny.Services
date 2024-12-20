@@ -12,7 +12,7 @@ const NanniesList = ({ nannies }: NanniesListProps) => {
     <ul className={css.nanniesList}>
       {nannies.map((nanny) => (
         <li key={nanny.id}>
-          <NanniesCard nanny={nanny} />
+          <NanniesCard isAuthenticated={isAuthenticated} nanny={nanny} />
         </li>
       ))}
     </ul>
