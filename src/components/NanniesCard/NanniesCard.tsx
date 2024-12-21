@@ -9,10 +9,10 @@ import css from "./NanniesCard.module.css";
 
 type NanniesCardProps = {
   nanny: Nanny;
-  // isAuthenticated: boolean;
+  isAuthenticated: boolean;
 };
 
-const NanniesCard = ({ nanny }: NanniesCardProps) => {
+const NanniesCard = ({ nanny, isAuthenticated }: NanniesCardProps) => {
   const [isOpenMore, setIsOpenMore] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
