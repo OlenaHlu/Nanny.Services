@@ -70,7 +70,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ closeModal }) => {
                 <div>
                   <Field
                     className={css.input}
-                    type="name"
+                    type="text"
                     id="name"
                     name="name"
                     placeholder="Name"

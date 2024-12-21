@@ -1,7 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import {
   persistStore,
-  // persistReducer,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -15,20 +15,23 @@ import { favoritesReducer } from "./favorites/slice";
 import { authReducer } from "./auth/slice";
 import storage from "redux-persist/lib/storage";
 
-// const persistConfig = {
-//   key: "root",
-//   storage,
-//   whitelist: ["nannies"],
-// };
-// const persistedReducer = persistReducer(persistConfig, nanniesReducer);
+const rootReducer = combineReducers({
+  nannies: nanniesReducer,
+  filters: filtersReducer,
+  favorites: favoritesReducer,
+  auth: authReducer,
+});
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["nannies", "favorites"],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: {
-    nannies: nanniesReducer,
-    filters: filtersReducer,
-    favorites: favoritesReducer,
-    auth: authReducer,
-  },
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

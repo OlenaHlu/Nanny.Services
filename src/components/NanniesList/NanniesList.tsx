@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../redux/hooks";
 import NanniesCard from "../NanniesCard/NanniesCard";
 import type { Nannies } from "../../redux/nannies/types";
 import { selectIsAuthenticated } from "../../redux/auth/selectors";
@@ -10,7 +10,7 @@ type NanniesListProps = {
 };
 
 const NanniesList = ({ nannies }: NanniesListProps) => {
-  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
   return (
     <ul className={css.nanniesList}>

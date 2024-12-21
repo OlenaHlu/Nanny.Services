@@ -1,4 +1,3 @@
-import axios, { AxiosError } from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { auth, firestore } from "../../fetch/firebase";
 
@@ -7,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
 export type User = {
   email: string | null;
@@ -25,6 +25,12 @@ export const registerUser = createAsyncThunk<
       password
     );
     const user = userCredential.user;
+
+    await setDoc(doc(firestore, "users", user.uid!), {
+      email: user.email,
+      createdAt: new Date().toISOString(),
+    });
+
     return { email: user.email, uid: user.uid };
   } catch (error) {
     return thunkAPI.rejectWithValue("Registration failed");
@@ -43,6 +49,7 @@ export const loginUser = createAsyncThunk<
       password
     );
     const user = userCredential.user;
+
     return { email: user.email, uid: user.uid };
   } catch (error) {
     return thunkAPI.rejectWithValue("Login failed");

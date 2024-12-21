@@ -2,11 +2,11 @@ import React from "react";
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loader from "./components/Loader/Loader";
-// import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const NanniesPage = lazy(() => import("./pages/NanniesPage/NanniesPage"));
-// const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
+const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
 // const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 const App: React.FC = () => {
@@ -16,11 +16,11 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/nannies" element={<NanniesPage />}></Route>
-          {/* <Route
+          <Route
             path="/favorites"
             element={<PrivateRoute component={<FavoritesPage />} />}
           ></Route>
-          <Route path="*" element={<NotFoundPage />}></Route> */}
+          {/* <Route path="*" element={<NotFoundPage />}></Route> */}
         </Routes>
       </Suspense>
     </>
