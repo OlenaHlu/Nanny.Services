@@ -123,7 +123,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ closeModal }) => {
                 </div>
               </div>
               <button className={css.formBtn} type="submit">
-                {isSubmitting ? <Loader /> : "Log In"}
+                {isSubmitting ? <Loader /> : "Sign Up"}
               </button>
             </Form>
           )}
