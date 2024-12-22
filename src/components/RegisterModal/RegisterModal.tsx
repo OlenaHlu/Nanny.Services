@@ -2,7 +2,10 @@ import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import Icon from "../common/Icon";
 import Loader from "../Loader/Loader";
 import { useState } from "react";
-import { Field, Form, Formik, ErrorMessage } from "formik";
+import { registerUser } from "../../redux/auth/operations";
+import { Field, Form, Formik, ErrorMessage, FormikHelpers } from "formik";
+import { useAppDispatch } from "../../redux/hooks";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 import css from "./RegisterModal.module.css";
@@ -32,6 +35,8 @@ const validationSchema = Yup.object().shape({
 
 const RegisterModal: React.FC<RegisterModalProps> = ({ closeModal }) => {
   const [isVisiblePwd, setIsVisiblePwd] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const initialValues: RegisterFormValues = {
     name: "",
@@ -43,9 +48,21 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ closeModal }) => {
     setIsVisiblePwd(!isVisiblePwd);
   };
 
-  function handleSubmit(values: RegisterFormValues) {
-    console.log("Form Submitted:", values);
-  }
+  const handleSubmit = async (
+    values: RegisterFormValues,
+    { setSubmitting }: FormikHelpers<RegisterFormValues>
+  ) => {
+    try {
+      await dispatch(registerUser(values)).unwrap();
+      console.log("Form Submitted:", values);
+      closeModal();
+      navigate("/favorites");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <ModalWrapper closeModal={closeModal}>
