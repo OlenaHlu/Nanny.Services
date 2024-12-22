@@ -1,9 +1,15 @@
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import Icon from "../common/Icon";
 import { useState } from "react";
+import { loginUser } from "../../redux/auth/operations";
 import { Field, Form, Formik, ErrorMessage } from "formik";
-// import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import Loader from "../Loader/Loader";
+import { useNavigate } from "react-router-dom";
+import {
+  selectIsAuthenticated,
+  selectAuthError,
+} from "../../redux/auth/selectors";
 
 import * as Yup from "yup";
 
@@ -30,8 +36,14 @@ const validationSchema = Yup.object().shape({
 });
 
 const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const [isVisiblePwd, setIsVisiblePwd] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const authError = useAppSelector(selectAuthError);
 
   const initialValues: LoginFormValues = {
     email: "",
@@ -42,9 +54,19 @@ const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
     setIsVisiblePwd(!isVisiblePwd);
   };
 
-  function handleSubmit(values: LoginFormValues) {
-    console.log("Form Submitted:", values);
-  }
+  const handleSubmit = async (values: LoginFormValues) => {
+    setIsSubmitting(true);
+    try {
+      await dispatch(loginUser(values)).unwrap();
+      console.log("Form Submitted:", values);
+      closeModal();
+      navigate("/favorites");
+    } catch (error) {
+      console.error("Login failed:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <ModalWrapper closeModal={closeModal}>
@@ -106,7 +128,11 @@ const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
                   />
                 </div>
               </div>
-              <button className={css.formBtn} type="submit">
+              <button
+                className={css.formBtn}
+                type="submit"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? <Loader /> : "Log In"}
               </button>
             </Form>

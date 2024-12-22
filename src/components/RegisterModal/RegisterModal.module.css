@@ -13,6 +13,9 @@
 .close {
   width: 20px;
   height: 20px;
+  position: absolute;
+  right: 28px;
+  top: 28px;
 }
 
 .icon {
@@ -28,12 +31,6 @@
 
 .icon:hover {
   stroke: var(--main);
-}
-
-.close {
-  position: absolute;
-  right: 28px;
-  top: 28px;
 }
 
 .formTitle {

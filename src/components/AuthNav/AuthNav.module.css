@@ -27,8 +27,24 @@
     background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.authBtn {
+  border: 1px solid rgba(251, 251, 251, 0.4);
+  border-radius: 30px;
+  padding: 14px 41px;
+  height: 48px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01rem;
+  color: var(--bg-white);
+  transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .logBtn:hover,
-.regBtn:hover {
+.regBtn:hover,
+.authBtn:hover {
   background-color: var(--bg-white);
   color: var(--main);
 }
