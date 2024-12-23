@@ -11,7 +11,9 @@ type NanniesListProps = {
 
 const NanniesList = ({ nannies }: NanniesListProps) => {
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
-
+  console.log("Nannies data:", nannies);
+  console.log("Is user authenticated:", isAuthenticated);
+  console.log("Nannies:", nannies);
   return (
     <ul className={css.nanniesList}>
       {nannies.map((nanny) => (

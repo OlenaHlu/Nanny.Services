@@ -16,7 +16,10 @@ export const getNannies = createAsyncThunk<
     if (!response.data) {
       return [];
     }
-    return Object.values(response.data);
+    return Object.entries(response.data).map(([id, nanny]) => ({
+      id,
+      ...(nanny as Omit<Nanny, "id">),
+    }));
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.error("Error fetching nannies:", error.message);

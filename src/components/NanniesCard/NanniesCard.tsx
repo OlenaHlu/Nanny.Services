@@ -29,7 +29,7 @@ const NanniesCard = ({ nanny, isAuthenticated }: NanniesCardProps) => {
   }, [isOpenMore]);
 
   const {
-    id,
+    // id,
     name,
     avatar_url,
     birthday,

@@ -16,7 +16,7 @@ const HeartButton: React.FC<HeartButtonProps> = ({
 }) => {
   const dispatch = useAppDispatch();
   const isFavorite = useAppSelector(isNannyFavorite(nannyId));
-
+  console.log("HeartButton nannyId:", nannyId);
   const handleClick = () => {
     if (!isAuthenticated) {
       alert("This feature is available only for authorized users.");
