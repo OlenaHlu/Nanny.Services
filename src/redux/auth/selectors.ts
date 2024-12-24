@@ -7,3 +7,5 @@ export const selectIsLoading: SelectBoolean = (state) => state.auth.isLoading;
 export const selectAuthError: SelectError = (state) => state.auth.error;
 export const selectIsAuthenticated: SelectBoolean = (state) =>
   state.auth.isAuthenticated;
+export const selectUserId = (state: RootState): string | null =>
+  state.auth.user?.uid || null;

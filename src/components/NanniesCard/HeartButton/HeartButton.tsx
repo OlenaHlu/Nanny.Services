@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { toggleFavorite } from "../../../redux/favorites/slice";
 import { isNannyFavorite } from "../../../redux/favorites/selectors";
+import { selectUser } from "../../../redux/auth/selectors";
 import Icon from "../../common/Icon";
 
 import css from "./HeartButton.module.css";
@@ -15,15 +16,23 @@ const HeartButton: React.FC<HeartButtonProps> = ({
   isAuthenticated,
 }) => {
   const dispatch = useAppDispatch();
-  const isFavorite = useAppSelector(isNannyFavorite(nannyId));
-  console.log("HeartButton nannyId:", nannyId);
+  const user = useAppSelector(selectUser);
+  const userId = user?.uid || null;
+  // console.log("User ID:", userId);
+  // console.log("Nanny ID:", nannyId);
+
+  const isFavorite = useAppSelector(isNannyFavorite(nannyId, userId));
+
+  // console.log("HeartButton nannyId:", nannyId);
+
   const handleClick = () => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated || !userId) {
       alert("This feature is available only for authorized users.");
       return;
     }
-    dispatch(toggleFavorite(nannyId));
+    dispatch(toggleFavorite({ nannyId, userId }));
   };
+
   return (
     <button onClick={handleClick} className={css.heartButton}>
       <Icon

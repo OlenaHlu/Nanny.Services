@@ -13,7 +13,7 @@ if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
       <Provider store={store}>
-        <PersistGate persistor={persistor}>
+        <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
           <BrowserRouter>
             <App />
           </BrowserRouter>
