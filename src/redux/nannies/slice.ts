@@ -29,7 +29,8 @@ const nanniesSlice = createSlice({
     loadMore: (state, action: PayloadAction<number>) => {
       state.visibleCount += action.payload;
     },
-    resetVisibleCount: (state) => {
+    resetVisibleCount: (state, action: PayloadAction<Nanny[]>) => {
+      state.nannies = action.payload;
       state.visibleCount = 3;
     },
   },
@@ -41,6 +42,7 @@ const nanniesSlice = createSlice({
         (state, action: PayloadAction<Nanny[]>) => {
           state.isLoading = false;
           state.nannies = action.payload;
+          state.visibleCount = 3;
         }
       )
       .addCase(getNannies.rejected, handleRejected);

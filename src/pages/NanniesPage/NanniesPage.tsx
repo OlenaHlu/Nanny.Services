@@ -12,7 +12,6 @@ import {
 } from "../../redux/nannies/selectors";
 import { selectFilters } from "../../redux/filters/selectors";
 import { loadMore } from "../../redux/nannies/slice";
-import { nanniesDB } from "../../fetch/firebase";
 
 import css from "./NanniesPage.module.css";
 
