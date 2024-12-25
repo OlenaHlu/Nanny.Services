@@ -1,5 +1,7 @@
 .nanniesHeader {
   background-color: var(--main);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nanniesContainer {

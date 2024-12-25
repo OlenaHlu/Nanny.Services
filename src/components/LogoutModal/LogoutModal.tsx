@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import { useAppDispatch } from "../../redux/hooks";
 import { logoutUser } from "../../redux/auth/operations";
@@ -10,10 +11,12 @@ type LogoutModalProps = {
 
 const LogoutModal: React.FC<LogoutModalProps> = ({ closeModal }) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     dispatch(logoutUser());
     closeModal();
+    navigate("/");
   };
 
   return (

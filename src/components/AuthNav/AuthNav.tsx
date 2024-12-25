@@ -3,13 +3,18 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LogoutModal from "../LogoutModal/LogoutModal";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { selectIsAuthenticated } from "../../redux/auth/selectors";
+import {
+  selectIsAuthenticated,
+  selectUserName,
+} from "../../redux/auth/selectors";
+import Icon from "../common/Icon";
 import css from "./AuthNav.module.css";
 // import clsx from "clsx";
 
 const AuthNav: React.FC = () => {
   const dispatch = useAppDispatch();
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const userName = useAppSelector(selectUserName);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] =
     useState<boolean>(false);
@@ -53,9 +58,17 @@ const AuthNav: React.FC = () => {
       )}
 
       {isAuthenticated && (
-        <button className={css.authBtn} onClick={openLogoutModal}>
-          Log Out
-        </button>
+        <div className={css.authContainer}>
+          <div className={css.authContent}>
+            <span className={css.iconContainer}>
+              <Icon className={css.userIcon} iconName="mdi_user" />
+            </span>
+            <p className={css.nameUser}>{userName}</p>
+          </div>
+          <button className={css.authBtn} onClick={openLogoutModal}>
+            Log Out
+          </button>
+        </div>
       )}
 
       {isLoginModalOpen && <LoginModal closeModal={closeLoginModal} />}

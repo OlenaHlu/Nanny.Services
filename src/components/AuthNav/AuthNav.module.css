@@ -48,3 +48,38 @@
   background-color: var(--bg-white);
   color: var(--main);
 }
+
+.iconContainer {
+  background-color: var(--bg-white);
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.userIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.authContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.authContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nameUser {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
+  letter-spacing: -0.01em;
+  color: var(--bg-white);
+}
