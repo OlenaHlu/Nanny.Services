@@ -29,3 +29,7 @@
   background-color: var(--bg-white);
   content: "";
 }
+
+.homePageNav {
+  margin-left: 360px;
+}

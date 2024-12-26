@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { selectIsAuthenticated } from "../../redux/auth/selectors";
 import css from "./Navigation.module.css";
@@ -10,9 +10,9 @@ const Navigation = () => {
   }
 
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
-
+  const isHomePage = location.pathname === "/";
   return (
-    <nav>
+    <nav className={clsx(css.nav, isHomePage && css.homePageNav)}>
       <ul className={css.navList}>
         <li>
           <NavLink className={getClassActiveLink} to="/">
