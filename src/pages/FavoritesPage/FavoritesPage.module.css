@@ -1,3 +1,7 @@
 .favoriteHeader {
   background-color: var(--main);
 }
+
+.favoriteMain {
+  padding-bottom: 32px;
+}

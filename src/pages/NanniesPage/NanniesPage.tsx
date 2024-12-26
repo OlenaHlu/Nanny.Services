@@ -1,13 +1,13 @@
 import Header from "../../components/Header/Header";
 import NanniesList from "../../components/NanniesList/NanniesList";
 import FilterForm from "../../components/FilterForm/FilterForm";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getNannies } from "../../redux/nannies/operations";
 import {
   selectNannies,
   selectIsLoading,
-  selectError,
+  // selectError,
   selectVisibleCount,
 } from "../../redux/nannies/selectors";
 import { selectFilters } from "../../redux/filters/selectors";
@@ -22,7 +22,7 @@ const NanniesPage: React.FC = () => {
   const visibleCount = useAppSelector(selectVisibleCount);
   const filters = useAppSelector(selectFilters);
   const isLoading = useAppSelector(selectIsLoading);
-  const error = useAppSelector(selectError);
+  // const error = useAppSelector(selectError);
 
   const filteredNannies = [...nannies]
     .sort((a, b) => {
