@@ -7,6 +7,8 @@
 .nanniesContainer {
   background-color: var(--bg-gray);
   padding-bottom: 32px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .loadBtn {
