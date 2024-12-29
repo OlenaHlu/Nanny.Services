@@ -1,6 +1,7 @@
+import { useAppSelector } from "../../redux/hooks";
+
 import { Navigate } from "react-router-dom";
 import { selectIsAuthenticated } from "../../redux/auth/selectors";
-import { useAppSelector } from "../../redux/hooks";
 
 type PrivateRouteProps = {
   component: React.ReactNode;

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "../../common/Icon";
+
 import css from "./LeftSide.module.css";
 
 const LeftSide = () => {

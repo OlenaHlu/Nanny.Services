@@ -1,32 +1,31 @@
 import Header from "../../components/Header/Header";
 import FilterForm from "../../components/FilterForm/FilterForm";
 import NanniesList from "../../components/NanniesList/NanniesList";
-
+import { setFavoritesPageFilter } from "../../redux/filters/slice";
+import { selectFavoritesPageFilter } from "../../redux/filters/selectors";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { selectFavoritesByUser } from "../../redux/favorites/selectors";
 import { selectNannies } from "../../redux/nannies/selectors";
 import { selectUser } from "../../redux/auth/selectors";
-import { selectFilters } from "../../redux/filters/selectors";
 
 import css from "./FavoritesPage.module.css";
 
 const FavoritesPage: React.FC = () => {
   const dispatch = useAppDispatch();
-
+  const selectedFilter = useAppSelector(selectFavoritesPageFilter);
   const user = useAppSelector(selectUser);
   const nannies = useAppSelector(selectNannies);
   const favoritesIds = useAppSelector(selectFavoritesByUser(user?.uid || null));
-  const filters = useAppSelector(selectFilters);
-
   const favoritesNannies = nannies.filter((nanny) =>
     favoritesIds.includes(nanny.id)
   );
+
   const filteredNannies = [...favoritesNannies]
     .sort((a, b) => {
-      if (filters === "A to Z") {
+      if (selectedFilter === "A to Z") {
         return a.name.localeCompare(b.name);
       }
-      if (filters === "Z to A") {
+      if (selectedFilter === "Z to A") {
         return b.name.localeCompare(a.name);
       }
 
@@ -38,26 +37,30 @@ const FavoritesPage: React.FC = () => {
         ? b.reviews.reduce((sum, review) => sum + review.rating, 0) /
           b.reviews.length
         : 0;
-      if (filters === "Popular") {
+      if (selectedFilter === "Popular") {
         return averageRatingB - averageRatingA;
       }
 
-      if (filters === "Not popular") {
+      if (selectedFilter === "Not popular") {
         return averageRatingA - averageRatingB;
       }
 
       return 0;
     })
     .filter((nanny) => {
-      if (filters === "Less than 17$") {
+      if (selectedFilter === "Less than 17$") {
         return nanny.price_per_hour <= 17;
       }
-      if (filters === "Greater than 17$") {
+      if (selectedFilter === "Greater than 17$") {
         return nanny.price_per_hour > 17;
       }
 
       return true;
     });
+
+  const handleFilterChange = (filter: string) => {
+    dispatch(setFavoritesPageFilter(filter));
+  };
 
   return (
     <>
@@ -65,7 +68,10 @@ const FavoritesPage: React.FC = () => {
         <Header />
       </div>
       <main className={css.favoriteMain}>
-        <FilterForm />
+        <FilterForm
+          selectedFilters={selectedFilter}
+          onFilterChange={handleFilterChange}
+        />
         {favoritesIds.length > 0 ? (
           <NanniesList nannies={filteredNannies} />
         ) : (

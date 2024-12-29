@@ -1,6 +1,7 @@
-import css from "./ReviewsItems.module.css";
 import type { Review } from "../../../redux/nannies/types";
 import Icon from "../../common/Icon";
+
+import css from "./ReviewsItems.module.css";
 
 type ReviewsItemsProps = {
   review: Review;

@@ -1,8 +1,9 @@
 import Wrapper from "../../components/HomePageComponents/Wrapper/Wrapper";
 import Header from "../../components/Header/Header";
-import css from "./HomePage.module.css";
 import LeftSide from "../../components/HomePageComponents/LeftSide/LeftSide";
 import RightSide from "../../components/HomePageComponents/RightSide/RightSide";
+
+import css from "./HomePage.module.css";
 
 const HomePage: React.FC = () => {
   return (

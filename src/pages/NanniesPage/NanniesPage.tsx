@@ -1,8 +1,9 @@
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+
 import Header from "../../components/Header/Header";
 import NanniesList from "../../components/NanniesList/NanniesList";
 import FilterForm from "../../components/FilterForm/FilterForm";
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getNannies } from "../../redux/nannies/operations";
 import {
   selectNannies,
@@ -10,26 +11,30 @@ import {
   // selectError,
   selectVisibleCount,
 } from "../../redux/nannies/selectors";
-import { selectFilters } from "../../redux/filters/selectors";
+import { setNanniesPageFilter } from "../../redux/filters/slice";
+import { selectNanniesPageFilter } from "../../redux/filters/selectors";
 import { loadMore } from "../../redux/nannies/slice";
 
 import css from "./NanniesPage.module.css";
 
 const NanniesPage: React.FC = () => {
   const dispatch = useAppDispatch();
-
+  const selectedFilter = useAppSelector(selectNanniesPageFilter);
   const nannies = useAppSelector(selectNannies);
   const visibleCount = useAppSelector(selectVisibleCount);
-  const filters = useAppSelector(selectFilters);
   const isLoading = useAppSelector(selectIsLoading);
   // const error = useAppSelector(selectError);
 
+  useEffect(() => {
+    dispatch(getNannies());
+  }, [dispatch]);
+
   const filteredNannies = [...nannies]
     .sort((a, b) => {
-      if (filters === "A to Z") {
+      if (selectedFilter === "A to Z") {
         return a.name.localeCompare(b.name);
       }
-      if (filters === "Z to A") {
+      if (selectedFilter === "Z to A") {
         return b.name.localeCompare(a.name);
       }
 
@@ -41,30 +46,30 @@ const NanniesPage: React.FC = () => {
         ? b.reviews.reduce((sum, review) => sum + review.rating, 0) /
           b.reviews.length
         : 0;
-      if (filters === "Popular") {
+      if (selectedFilter === "Popular") {
         return averageRatingB - averageRatingA;
       }
 
-      if (filters === "Not popular") {
+      if (selectedFilter === "Not popular") {
         return averageRatingA - averageRatingB;
       }
 
       return 0;
     })
     .filter((nanny) => {
-      if (filters === "Less than 17$") {
+      if (selectedFilter === "Less than 17$") {
         return nanny.price_per_hour <= 17;
       }
-      if (filters === "Greater than 17$") {
+      if (selectedFilter === "Greater than 17$") {
         return nanny.price_per_hour > 17;
       }
 
       return true;
     });
 
-  useEffect(() => {
-    dispatch(getNannies());
-  }, [dispatch]);
+  const handleFilterChange = (filter: string) => {
+    dispatch(setNanniesPageFilter(filter));
+  };
 
   const handleLoadMore = () => {
     dispatch(loadMore(3));
@@ -76,7 +81,10 @@ const NanniesPage: React.FC = () => {
         <Header />
       </div>
       <main className={css.nanniesContainer}>
-        <FilterForm />
+        <FilterForm
+          selectedFilters={selectedFilter}
+          onFilterChange={handleFilterChange}
+        />
         <NanniesList nannies={filteredNannies.slice(0, visibleCount)} />
         {visibleCount < filteredNannies.length && !isLoading && (
           <button className={css.loadBtn} onClick={handleLoadMore}>

@@ -1,18 +1,18 @@
 import { useState } from "react";
+import { useAppSelector } from "../../redux/hooks";
+
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LogoutModal from "../LogoutModal/LogoutModal";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import Icon from "../common/Icon";
 import {
   selectIsAuthenticated,
   selectUserName,
 } from "../../redux/auth/selectors";
-import Icon from "../common/Icon";
+
 import css from "./AuthNav.module.css";
-// import clsx from "clsx";
 
 const AuthNav: React.FC = () => {
-  const dispatch = useAppDispatch();
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
   const userName = useAppSelector(selectUserName);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);

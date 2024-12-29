@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { selectIsAuthenticated } from "../../redux/auth/selectors";
 import css from "./Navigation.module.css";

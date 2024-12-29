@@ -1,22 +1,28 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type FiltersState = {
-  filters: string;
+  nanniesPageFilter: string;
+  favoritesPageFilter: string;
 };
 
 const initialState: FiltersState = {
-  filters: "Show all",
+  nanniesPageFilter: "Show all",
+  favoritesPageFilter: "Show all",
 };
 
 const filtersSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    setFilters: (state, action: PayloadAction<string>) => {
-      state.filters = action.payload;
+    setNanniesPageFilter: (state, action: PayloadAction<string>) => {
+      state.nanniesPageFilter = action.payload;
+    },
+    setFavoritesPageFilter: (state, action: PayloadAction<string>) => {
+      state.favoritesPageFilter = action.payload;
     },
   },
 });
 
-export const { setFilters } = filtersSlice.actions;
+export const { setNanniesPageFilter, setFavoritesPageFilter } =
+  filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;

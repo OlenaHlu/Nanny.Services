@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { selectFilters } from "../../redux/filters/selectors";
-import { setFilters } from "../../redux/filters/slice";
-
 import Icon from "../common/Icon";
 
 import css from "./FilterForm.module.css";
 
-const FilterForm: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const selectedFilters = useAppSelector(selectFilters);
+type FilterFormProps = {
+  selectedFilters: string;
+  onFilterChange: (filter: string) => void;
+};
+
+const FilterForm: React.FC<FilterFormProps> = ({
+  selectedFilters,
+  onFilterChange,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const filters = [
@@ -25,7 +27,7 @@ const FilterForm: React.FC = () => {
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   const handleFiltersClick = (filter: string) => {
-    dispatch(setFilters(filter));
+    onFilterChange(filter);
     setIsOpen(false);
   };
 

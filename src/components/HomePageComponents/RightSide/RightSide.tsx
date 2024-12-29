@@ -1,4 +1,5 @@
 import Icon from "../../common/Icon";
+
 import css from "./RightSide.module.css";
 
 const RightSide = () => {

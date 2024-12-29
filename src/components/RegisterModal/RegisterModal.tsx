@@ -1,11 +1,14 @@
+import { useState } from "react";
+import { useAppDispatch } from "../../redux/hooks";
+import { useNavigate } from "react-router-dom";
+
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import Icon from "../common/Icon";
 import Loader from "../Loader/Loader";
-import { useState } from "react";
+
 import { registerUser } from "../../redux/auth/operations";
 import { Field, Form, Formik, ErrorMessage, FormikHelpers } from "formik";
-import { useAppDispatch } from "../../redux/hooks";
-import { useNavigate } from "react-router-dom";
+
 import * as Yup from "yup";
 
 import css from "./RegisterModal.module.css";

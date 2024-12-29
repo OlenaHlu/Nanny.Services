@@ -1,6 +1,7 @@
+import { useCallback, useState } from "react";
+
 import type { Nanny } from "../../redux/nannies/types";
 import ReviewsList from "./ReviewsList/ReviewsList";
-import { useCallback, useState } from "react";
 import Icon from "../common/Icon";
 import OrderModal from "../OrderModal/OrderModal";
 import HeartButton from "./HeartButton/HeartButton";
@@ -29,7 +30,6 @@ const NanniesCard = ({ nanny, isAuthenticated }: NanniesCardProps) => {
   }, [isOpenMore]);
 
   const {
-    // id,
     name,
     avatar_url,
     birthday,
