@@ -3,9 +3,15 @@
   height: 22px;
   fill: none;
   stroke: var(--text);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .iconHeartSelected {
   fill: var(--main);
   stroke: var(--main);
+}
+
+.iconAnimating {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
 }

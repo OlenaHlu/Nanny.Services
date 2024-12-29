@@ -1,6 +1,6 @@
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import { useState, useRef } from "react";
-import { Field, Form, Formik, ErrorMessage } from "formik";
+import { Field, Form, Formik, ErrorMessage, FormikHelpers } from "formik";
 import Icon from "../common/Icon";
 
 import * as Yup from "yup";
@@ -40,7 +40,7 @@ const validationOrderSchema = Yup.object().shape({
     .min(7, "Too Short")
     .max(30, "Too Long")
     .required("Email is required"),
-  name: Yup.string()
+  parentsName: Yup.string()
     .min(2, "Name must be at least 2 characters long")
     .required("Name is required"),
   comment: Yup.string().max(500, "Comment can be up to 500 characters"),
@@ -72,8 +72,12 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
 
   const toggleDropdown = () => setIsTimeOpen((prev) => !prev);
 
-  function handleSubmit(values: OrderModalValues) {
+  function handleSubmit(
+    values: OrderModalValues,
+    { resetForm }: FormikHelpers<OrderModalValues>
+  ) {
     console.log("Form Submitted:", values);
+    resetForm();
   }
 
   return (
@@ -206,7 +210,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
                   <Field
                     className={css.lowerInput}
                     type="text"
-                    name="name"
+                    name="parentsName"
                     placeholder="Father's or mother's name"
                   />
                   <ErrorMessage
@@ -230,7 +234,9 @@ const OrderModal: React.FC<OrderModalProps> = ({ name, image, closeModal }) => {
                   />
                 </div>
               </div>
-              <button className={css.sendBtn}>Send</button>
+              <button className={css.sendBtn} type="submit">
+                Send
+              </button>
             </Form>
           )}
         </Formik>

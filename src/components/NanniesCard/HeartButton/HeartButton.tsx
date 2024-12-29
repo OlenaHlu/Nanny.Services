@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { toggleFavorite } from "../../../redux/favorites/slice";
 import { isNannyFavorite } from "../../../redux/favorites/selectors";
@@ -25,11 +26,17 @@ const HeartButton: React.FC<HeartButtonProps> = ({
 
   // console.log("HeartButton nannyId:", nannyId);
 
+  const [isAnimating, setIsAnimating] = useState(false);
+
   const handleClick = () => {
     if (!isAuthenticated || !userId) {
       alert("This feature is available only for authorized users.");
       return;
     }
+
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 300);
+
     dispatch(toggleFavorite({ nannyId, userId }));
   };
 
@@ -38,7 +45,7 @@ const HeartButton: React.FC<HeartButtonProps> = ({
       <Icon
         className={`${css.iconHeart} ${
           isFavorite ? css.iconHeartSelected : ""
-        }`}
+        } ${isAnimating ? css.iconAnimating : ""}`}
         iconName="heart-normal"
       />
     </button>
