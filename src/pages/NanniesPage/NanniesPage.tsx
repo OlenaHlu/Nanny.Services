@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import Header from "../../components/Header/Header";
 import NanniesList from "../../components/NanniesList/NanniesList";
 import FilterForm from "../../components/FilterForm/FilterForm";
+import Loader from "../../components/Loader/Loader";
 import { getNannies } from "../../redux/nannies/operations";
 import {
   selectNannies,
@@ -11,14 +12,16 @@ import {
   // selectError,
   selectVisibleCount,
 } from "../../redux/nannies/selectors";
-import { setNanniesPageFilter } from "../../redux/filters/slice";
+import { setNanniesPageFilter, resetFilters } from "../../redux/filters/slice";
 import { selectNanniesPageFilter } from "../../redux/filters/selectors";
+import { selectIsAuthenticated } from "../../redux/auth/selectors";
 import { loadMore } from "../../redux/nannies/slice";
 
 import css from "./NanniesPage.module.css";
 
 const NanniesPage: React.FC = () => {
   const dispatch = useAppDispatch();
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
   const selectedFilter = useAppSelector(selectNanniesPageFilter);
   const nannies = useAppSelector(selectNannies);
   const visibleCount = useAppSelector(selectVisibleCount);
@@ -28,6 +31,12 @@ const NanniesPage: React.FC = () => {
   useEffect(() => {
     dispatch(getNannies());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(resetFilters());
+    }
+  }, [isAuthenticated, dispatch]);
 
   const filteredNannies = [...nannies]
     .sort((a, b) => {
@@ -81,15 +90,21 @@ const NanniesPage: React.FC = () => {
         <Header />
       </div>
       <main className={css.nanniesContainer}>
-        <FilterForm
-          selectedFilters={selectedFilter}
-          onFilterChange={handleFilterChange}
-        />
-        <NanniesList nannies={filteredNannies.slice(0, visibleCount)} />
-        {visibleCount < filteredNannies.length && !isLoading && (
-          <button className={css.loadBtn} onClick={handleLoadMore}>
-            Load More
-          </button>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <FilterForm
+              selectedFilters={selectedFilter}
+              onFilterChange={handleFilterChange}
+            />
+            <NanniesList nannies={filteredNannies.slice(0, visibleCount)} />
+            {visibleCount < filteredNannies.length && !isLoading && (
+              <button className={css.loadBtn} onClick={handleLoadMore}>
+                Load More
+              </button>
+            )}
+          </>
         )}
       </main>
     </>

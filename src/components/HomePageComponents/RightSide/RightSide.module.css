@@ -9,6 +9,14 @@
   border-bottom-right-radius: 30px;
 }
 
+@media (min-resolution: 192dpi),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .rightContainer {
+    background-image: url("../../../assets/bg-image@2x.jpg");
+  }
+}
+
 .nannies {
   width: 284px;
   display: flex;

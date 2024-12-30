@@ -20,9 +20,13 @@ const filtersSlice = createSlice({
     setFavoritesPageFilter: (state, action: PayloadAction<string>) => {
       state.favoritesPageFilter = action.payload;
     },
+    resetFilters(state) {
+      state.nanniesPageFilter = "Show all";
+      state.favoritesPageFilter = "Show all";
+    },
   },
 });
 
-export const { setNanniesPageFilter, setFavoritesPageFilter } =
+export const { setNanniesPageFilter, setFavoritesPageFilter, resetFilters } =
   filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;

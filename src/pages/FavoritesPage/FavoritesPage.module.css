@@ -4,4 +4,15 @@
 
 .favoriteMain {
   padding-bottom: 32px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.noFavorites {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 145px;
+
+  font-size: 40px;
 }

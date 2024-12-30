@@ -1,11 +1,12 @@
 import Header from "../../components/Header/Header";
 import FilterForm from "../../components/FilterForm/FilterForm";
 import NanniesList from "../../components/NanniesList/NanniesList";
+import Loader from "../../components/Loader/Loader";
 import { setFavoritesPageFilter } from "../../redux/filters/slice";
 import { selectFavoritesPageFilter } from "../../redux/filters/selectors";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { selectFavoritesByUser } from "../../redux/favorites/selectors";
-import { selectNannies } from "../../redux/nannies/selectors";
+import { selectNannies, selectIsLoading } from "../../redux/nannies/selectors";
 import { selectUser } from "../../redux/auth/selectors";
 
 import css from "./FavoritesPage.module.css";
@@ -15,6 +16,7 @@ const FavoritesPage: React.FC = () => {
   const selectedFilter = useAppSelector(selectFavoritesPageFilter);
   const user = useAppSelector(selectUser);
   const nannies = useAppSelector(selectNannies);
+  const isLoading = useAppSelector(selectIsLoading);
   const favoritesIds = useAppSelector(selectFavoritesByUser(user?.uid || null));
   const favoritesNannies = nannies.filter((nanny) =>
     favoritesIds.includes(nanny.id)
@@ -68,14 +70,20 @@ const FavoritesPage: React.FC = () => {
         <Header />
       </div>
       <main className={css.favoriteMain}>
-        <FilterForm
-          selectedFilters={selectedFilter}
-          onFilterChange={handleFilterChange}
-        />
-        {favoritesIds.length > 0 ? (
-          <NanniesList nannies={filteredNannies} />
+        {isLoading ? (
+          <Loader />
         ) : (
-          <p>You have no favorites yet!</p>
+          <>
+            <FilterForm
+              selectedFilters={selectedFilter}
+              onFilterChange={handleFilterChange}
+            />
+            {favoritesIds.length > 0 ? (
+              <NanniesList nannies={filteredNannies} />
+            ) : (
+              <p className={css.noFavorites}>You have no favorites yet!</p>
+            )}
+          </>
         )}
       </main>
     </>

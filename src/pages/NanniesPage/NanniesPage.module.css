@@ -5,10 +5,11 @@
 }
 
 .nanniesContainer {
-  background-color: var(--bg-gray);
-  padding-bottom: 32px;
+  /* background-color: var(--bg-gray); */
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 32px;
 }
 
 .loadBtn {
