@@ -1,6 +1,7 @@
 import React from "react";
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Loader from "./components/Loader/Loader";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
       </Suspense>
+      <ToastContainer />
     </>
   );
 };

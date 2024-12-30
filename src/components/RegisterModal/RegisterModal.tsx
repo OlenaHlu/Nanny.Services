@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import Icon from "../common/Icon";
 import Loader from "../Loader/Loader";
+import ShowToast from "../common/ShowToast";
 
 import { registerUser } from "../../redux/auth/operations";
 import { Field, Form, Formik, ErrorMessage, FormikHelpers } from "formik";
@@ -60,8 +61,12 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ closeModal }) => {
       console.log("Form Submitted:", values);
       closeModal();
       navigate("/favorites");
+      ShowToast({ message: "Registration successful!", type: "success" });
     } catch (error) {
-      console.error("Error submitting form:", error);
+      ShowToast({
+        message: "Something went wrong! Please try again.",
+        type: "error",
+      });
     } finally {
       setSubmitting(false);
     }

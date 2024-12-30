@@ -1,4 +1,5 @@
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import ShowToast from "../common/ShowToast";
 import Icon from "../common/Icon";
 import { useState } from "react";
 import { loginUser } from "../../redux/auth/operations";
@@ -61,8 +62,9 @@ const LoginModal: React.FC<LoginModalProps> = ({ closeModal }) => {
       console.log("Form Submitted:", values);
       closeModal();
       navigate("/favorites");
+      ShowToast({ message: "Login successful!", type: "success" });
     } catch (error) {
-      console.error("Login failed:", error);
+      ShowToast({ message: "Login failed!", type: "error" });
     } finally {
       setIsSubmitting(false);
     }

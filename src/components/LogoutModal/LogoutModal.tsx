@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../redux/hooks";
 
+import ShowToast from "../common/ShowToast";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import { logoutUser } from "../../redux/auth/operations";
 
@@ -18,6 +19,7 @@ const LogoutModal: React.FC<LogoutModalProps> = ({ closeModal }) => {
     dispatch(logoutUser());
     closeModal();
     navigate("/");
+    ShowToast({ message: "Logout successful!", type: "success" });
   };
 
   return (

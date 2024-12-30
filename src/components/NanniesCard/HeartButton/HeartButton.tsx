@@ -4,6 +4,7 @@ import { toggleFavorite } from "../../../redux/favorites/slice";
 import { isNannyFavorite } from "../../../redux/favorites/selectors";
 import { selectUser } from "../../../redux/auth/selectors";
 import Icon from "../../common/Icon";
+import ShowToast from "../../common/ShowToast";
 
 import css from "./HeartButton.module.css";
 
@@ -19,18 +20,17 @@ const HeartButton: React.FC<HeartButtonProps> = ({
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
   const userId = user?.uid || null;
-  // console.log("User ID:", userId);
-  // console.log("Nanny ID:", nannyId);
 
   const isFavorite = useAppSelector(isNannyFavorite(nannyId, userId));
-
-  // console.log("HeartButton nannyId:", nannyId);
 
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleClick = () => {
     if (!isAuthenticated || !userId) {
-      alert("This feature is available only for authorized users.");
+      ShowToast({
+        message: "Only for authorized users.",
+        type: "error",
+      });
       return;
     }
 

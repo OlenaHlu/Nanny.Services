@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import FilterForm from "../../components/FilterForm/FilterForm";
 import NanniesList from "../../components/NanniesList/NanniesList";
@@ -81,7 +82,16 @@ const FavoritesPage: React.FC = () => {
             {favoritesIds.length > 0 ? (
               <NanniesList nannies={filteredNannies} />
             ) : (
-              <p className={css.noFavorites}>You have no favorites yet!</p>
+              <div className={css.noFavorites}>
+                <h4 className={css.title}>You have no favorites yet!</h4>
+                <p className={css.text}>
+                  Discover our{" "}
+                  <Link className={css.link} to="/nannies">
+                    Nannies
+                  </Link>{" "}
+                  and make a list tailored to your needs.
+                </p>
+              </div>
             )}
           </>
         )}
