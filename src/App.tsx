@@ -7,7 +7,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const NanniesPage = lazy(() => import("./pages/NanniesPage/NanniesPage"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
-// const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 const App: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ const App: React.FC = () => {
             path="/favorites"
             element={<PrivateRoute component={<FavoritesPage />} />}
           ></Route>
-          {/* <Route path="*" element={<NotFoundPage />}></Route> */}
+          <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
       </Suspense>
     </>
