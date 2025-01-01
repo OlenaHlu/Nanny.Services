@@ -30,7 +30,7 @@
 }
 
 .icon:hover {
-  stroke: var(--main);
+  stroke: #f03f3b;
 }
 
 .formTitle {
@@ -117,5 +117,5 @@
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
-  color: var(--main);
+  color: #f03f3b;
 }

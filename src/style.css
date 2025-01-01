@@ -14,6 +14,15 @@
   --bg-white: #fbfbfb;
   --star: #ffc531;
   --price: #38cd3e;
+
+  /* --main: #0957c3;
+  --main-light: rgba(9, 87, 195, 0.2); */
+
+  /* --main: #103931;
+  --main-light: rgba(16, 57, 49, 0.2); */
+
+  --main: #116740;
+  --main-light: rgba(58, 105, 26, 0.2);
 }
 
 body {

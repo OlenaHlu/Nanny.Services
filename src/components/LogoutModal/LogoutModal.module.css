@@ -30,7 +30,7 @@
 }
 
 .icon:hover {
-  stroke: var(--main);
+  stroke: #f03f3b;
 }
 
 .formTitle {

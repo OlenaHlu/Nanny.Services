@@ -13,7 +13,6 @@
 .close {
   width: 20px;
   height: 20px;
-
   position: absolute;
   right: 28px;
   top: 28px;
@@ -31,7 +30,7 @@
 }
 
 .icon:hover {
-  stroke: var(--main);
+  stroke: #f03f3b;
 }
 
 .formTitle {
@@ -118,5 +117,5 @@
   text-transform: uppercase;
   font-weight: 400;
   text-align: center;
-  color: var(--main);
+  color: #f03f3b;
 }
