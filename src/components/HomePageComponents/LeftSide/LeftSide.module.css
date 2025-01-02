@@ -1,42 +1,43 @@
+/*=================Mobile=================*/
 .leftContainer {
   background-color: var(--main);
-  width: 50%;
-  height: 784px;
-  border-top-left-radius: 30px;
+  width: 288px;
+  height: 484px;
   border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   color: var(--bg-white);
 }
 
 .leftContent {
-  width: 517px;
-  height: 322px;
-  padding-top: 251px;
-  padding-left: 96px;
+  width: 220px;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
   font-weight: 500;
-  font-size: 70px;
+  font-size: 30px;
   line-height: 1;
   letter-spacing: -0.13125rem;
-  margin-bottom: 28px;
+  margin-bottom: 48px;
 }
 
 .text {
   font-weight: 400;
-  font-size: 28px;
+  font-size: 18px;
   line-height: 1.07;
   letter-spacing: -0.035rem;
-  margin-bottom: 64px;
+  margin-bottom: 134px;
 }
 
 .link {
   border: 1px solid rgba(251, 251, 251, 0.4);
   border-radius: 30px;
-  padding: 18px 88px 18px 50px;
+  padding: 16px 75px 16px 40px;
   width: 230px;
   height: 60px;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: -0.0125rem;
@@ -45,25 +46,120 @@
 }
 
 .icon {
-  width: 20px;
+  width: 18px;
   height: 17px;
-  margin-left: 18px;
+  margin-left: 20px;
   transition: opacity 0.3s ease;
   position: absolute;
-  top: 23px;
-}
-.iconDefault {
-  opacity: 1;
+  top: 20px;
 }
 
 .iconHover {
   opacity: 0;
 }
 
-.link:hover .iconDefault {
-  opacity: 0;
+/*=================Tablet=================*/
+@media screen and (min-width: 768px) {
+  .leftContainer {
+    width: 704px;
+    height: 784px;
+  }
+
+  .leftContent {
+    width: 517px;
+    height: 322px;
+    margin-top: 151px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .title {
+    font-size: 70px;
+    line-height: 1;
+    letter-spacing: -0.13125rem;
+    margin-bottom: 68px;
+  }
+
+  .text {
+    font-size: 28px;
+  }
+
+  .link {
+    padding: 18px 88px 18px 50px;
+    width: 230px;
+    height: 60px;
+    font-weight: 500;
+  }
+
+  .icon {
+    width: 20px;
+    margin-left: 18px;
+    top: 22px;
+  }
+
+  .iconDefault {
+    opacity: 1;
+  }
+
+  .link:hover .iconDefault {
+    opacity: 0;
+  }
+
+  .link:hover .iconHover {
+    opacity: 1;
+  }
 }
 
-.link:hover .iconHover {
-  opacity: 1;
+/*=================Desktop=================*/
+@media screen and (min-width: 1440px) {
+  .leftContainer {
+    width: 50%;
+    height: 784px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .leftContent {
+    width: 517px;
+    height: 322px;
+    margin-top: 251px;
+    margin-left: 96px;
+  }
+
+  .title {
+    font-size: 70px;
+    margin-bottom: 28px;
+  }
+
+  .text {
+    font-size: 28px;
+    margin-bottom: 64px;
+  }
+
+  .link {
+    padding: 18px 88px 18px 50px;
+    font-weight: 500;
+  }
+
+  .icon {
+    width: 20px;
+    height: 17px;
+    margin-left: 18px;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 23px;
+  }
+  .iconDefault {
+    opacity: 1;
+  }
+
+  .link:hover .iconDefault {
+    opacity: 0;
+  }
+
+  .link:hover .iconHover {
+    opacity: 1;
+  }
 }

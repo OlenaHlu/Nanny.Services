@@ -1,6 +1,27 @@
+/*=================Mobile=================*/
 .wrapperContainer {
-  width: 1440px;
+  width: 288px;
   height: 100%;
-  padding: 32px;
+  padding: 16px;
   display: flex;
+  flex-direction: column-reverse;
+}
+
+/*=================Tablet=================*/
+@media screen and (min-width: 768px) {
+  .wrapperContainer {
+    width: 704px;
+    padding: 32px;
+    display: flex;
+  }
+}
+
+/*=================Desktop=================*/
+@media screen and (min-width: 1440px) {
+  .wrapperContainer {
+    width: 1376px;
+    padding: 32px;
+    display: flex;
+    flex-direction: row;
+  }
 }
