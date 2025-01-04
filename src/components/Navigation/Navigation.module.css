@@ -1,7 +1,11 @@
+/*=================Mobile=================*/
 .navList {
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  justify-content: center;
+  gap: 25px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .link {
@@ -12,6 +16,7 @@
   letter-spacing: -0.01rem;
   color: var(--bg-white);
 }
+
 .active {
   font-weight: 600;
   letter-spacing: 0.01rem;
@@ -19,8 +24,8 @@
 
 .link.active::after {
   position: absolute;
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
   left: 0;
   bottom: -10px;
   border-radius: 50%;
@@ -29,6 +34,20 @@
   content: "";
 }
 
-.homePageNav {
-  margin-left: 360px;
+/*=================Tablet=================*/
+@media screen and (min-width: 768px) {
+}
+
+/*=================Desktop=================*/
+@media screen and (min-width: 1440px) {
+  .navList {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .link.active::after {
+    width: 5px;
+    height: 5px;
+  }
 }

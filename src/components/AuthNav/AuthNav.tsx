@@ -44,6 +44,9 @@ const AuthNav: React.FC = () => {
     setIsLogoutModalOpen(false);
   };
 
+  const getShortUserName = (name: string): string =>
+    name.length > 10 ? `${name.slice(0, 10)}..` : name;
+
   return (
     <div className={css.authContainer}>
       {!isAuthenticated && (
@@ -63,7 +66,7 @@ const AuthNav: React.FC = () => {
             <span className={css.iconContainer}>
               <Icon className={css.userIcon} iconName="mdi_user" />
             </span>
-            <p className={css.nameUser}>{userName}</p>
+            <p className={css.nameUser}>{getShortUserName(userName)}</p>
           </div>
           <button className={css.authBtn} onClick={openLogoutModal}>
             Log Out

@@ -8,10 +8,12 @@ const Header = () => {
   return (
     <header className={css.headerContainer}>
       <Link to="/">
-        <img src={logo} width="164" height="28" />
+        <img src={logo} className={css.imgHead} />
       </Link>
-      <Navigation />
-      <AuthNav />
+      <div className={css.interactive}>
+        <Navigation />
+        <AuthNav />
+      </div>
     </header>
   );
 };

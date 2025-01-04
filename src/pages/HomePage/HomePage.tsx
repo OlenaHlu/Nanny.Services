@@ -8,9 +8,9 @@ import css from "./HomePage.module.css";
 const HomePage: React.FC = () => {
   return (
     <main className={css.homeContainer}>
-      {/* <div className={css.headerContainer}>
+      <div className={css.headerContainer}>
         <Header />
-      </div> */}
+      </div>
       <Wrapper>
         <LeftSide />
         <RightSide />
