@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch } from "../../../redux/hooks";
 
-import ShowToast from "../common/ShowToast";
+import ShowToast from "../../common/ShowToast";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
-import { logoutUser } from "../../redux/auth/operations";
+import { logoutUser } from "../../../redux/auth/operations";
 
 import css from "./LogoutModal.module.css";
 

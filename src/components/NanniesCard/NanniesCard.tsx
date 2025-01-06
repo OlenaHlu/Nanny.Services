@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import type { Nanny } from "../../redux/nannies/types";
 import ReviewsList from "./ReviewsList/ReviewsList";
 import Icon from "../common/Icon";
-import OrderModal from "../OrderModal/OrderModal";
+import OrderModal from "../Modals/OrderModal/OrderModal";
 import HeartButton from "./HeartButton/HeartButton";
 
 import css from "./NanniesCard.module.css";

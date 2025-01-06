@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useAppSelector } from "../../redux/hooks";
 
-import LoginModal from "../LoginModal/LoginModal";
-import RegisterModal from "../RegisterModal/RegisterModal";
-import LogoutModal from "../LogoutModal/LogoutModal";
+import LoginModal from "../Modals/RegLogMadals/LoginModal";
+import RegisterModal from "../Modals/RegLogMadals/RegisterModal";
+import LogoutModal from "../Modals/LogoutModal/LogoutModal";
 import Icon from "../common/Icon";
 import {
   selectIsAuthenticated,

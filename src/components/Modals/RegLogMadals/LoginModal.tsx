@@ -1,20 +1,20 @@
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
-import ShowToast from "../common/ShowToast";
-import Icon from "../common/Icon";
+import ShowToast from "../../common/ShowToast";
+import Icon from "../../common/Icon";
 import { useState } from "react";
-import { loginUser } from "../../redux/auth/operations";
+import { loginUser } from "../../../redux/auth/operations";
 import { Field, Form, Formik, ErrorMessage } from "formik";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import Loader from "../Loader/Loader";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import Loader from "../../Loader/Loader";
 import { useNavigate } from "react-router-dom";
 import {
   selectIsAuthenticated,
   selectAuthError,
-} from "../../redux/auth/selectors";
+} from "../../../redux/auth/selectors";
 
 import * as Yup from "yup";
 
-import css from "./LoginModal.module.css";
+import css from "./RegLogModals.module.css";
 
 type LoginModalProps = {
   closeModal: () => void;

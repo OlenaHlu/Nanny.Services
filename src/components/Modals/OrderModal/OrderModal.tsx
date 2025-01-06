@@ -1,7 +1,7 @@
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import { useState, useRef } from "react";
 import { Field, Form, Formik, ErrorMessage, FormikHelpers } from "formik";
-import Icon from "../common/Icon";
+import Icon from "../../common/Icon";
 
 import * as Yup from "yup";
 
