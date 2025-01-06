@@ -1,8 +1,9 @@
+/*=================Mobile=================*/
 .modalContent {
   background-color: var(--bg-white);
-  padding: 64px;
-  border-radius: 30px;
-  width: 438px;
+  padding: 24px;
+  border-radius: 25px;
+  width: 240px;
   position: relative;
   color: black;
   margin-left: auto;
@@ -11,26 +12,17 @@
 }
 
 .close {
-  width: 20px;
-  height: 20px;
   position: absolute;
-  right: 28px;
-  top: 28px;
+  right: 20px;
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
   stroke: black;
-  cursor: pointer;
-  transition: stroke 350ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.icon:hover {
-  stroke: #f03f3b;
 }
 
 .formTitle {
@@ -42,9 +34,18 @@
   margin-bottom: 20px;
 }
 
+.formTitle {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.05rem;
+  color: #11101c;
+  margin: 16px 0px;
+}
+
 .formText {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   letter-spacing: -0.01rem;
   color: var(--text-gray);
@@ -53,69 +54,213 @@
 .formValues {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin: 40px 0px;
+  gap: 16px;
+  margin: 20px 0px;
 }
 
 .input {
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 12px;
-  padding: 16px 18px;
-  width: 400px;
+  padding: 14px 16px;
+  width: 206px;
   height: 18px;
   outline: transparent;
 
   font-weight: 400;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.25;
   color: var(--text);
 }
 
 .formBtn {
   border-radius: 30px;
-  padding: 14px 19px;
-  width: 438px;
+  padding: 12px 17px;
+  width: 240px;
   height: 52px;
   background-color: var(--main);
 
   font-weight: 500;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.25;
   letter-spacing: -0.01rem;
   color: var(--bg-white);
-
-  transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.formBtn:hover {
-  background-color: var(--main-light);
-  color: var(--main);
-  border: 2px solid var(--main);
 }
 
 .iconContainer {
   position: absolute;
   right: 20px;
   top: 15px;
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
 }
 
 .iconPwd {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   stroke: var(--main);
   fill: var(--bg-white);
 }
 
 .error {
-  height: 20px;
-  margin: 5px 0;
-  text-transform: uppercase;
+  height: 16px;
   font-weight: 400;
+  font-size: 12px;
   text-align: center;
   color: #f03f3b;
+}
+
+/*=================Tablet=================*/
+@media screen and (min-width: 768px) {
+  .modalContent {
+    padding: 64px;
+    border-radius: 30px;
+    width: 438px;
+  }
+
+  .close {
+    right: 28px;
+    top: 28px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: stroke 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .icon:hover {
+    stroke: #f03f3b;
+  }
+
+  .formTitle {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .formText {
+    font-size: 16px;
+  }
+
+  .formValues {
+    gap: 18px;
+    margin: 40px 0px;
+  }
+
+  .input {
+    padding: 16px 18px;
+    width: 400px;
+
+    font-size: 16px;
+  }
+
+  .formBtn {
+    padding: 14px 19px;
+    width: 438px;
+
+    font-size: 16px;
+
+    transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1),
+      border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .formBtn:hover {
+    background-color: var(--main-light);
+    color: var(--main);
+    border: 2px solid var(--main);
+  }
+
+  .iconContainer {
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+  }
+
+  .iconPwd {
+    width: 20px;
+    height: 20px;
+  }
+
+  .error {
+    height: 20px;
+    margin: 5px 0;
+  }
+}
+
+/*=================Desktop=================*/
+@media screen and (min-width: 1440px) {
+  .modalContent {
+    padding: 64px;
+    border-radius: 30px;
+    width: 438px;
+  }
+
+  .close {
+    right: 28px;
+    top: 28px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: stroke 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .icon:hover {
+    stroke: #f03f3b;
+  }
+
+  .formTitle {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .formText {
+    font-size: 16px;
+  }
+
+  .formValues {
+    gap: 18px;
+    margin: 40px 0px;
+  }
+
+  .input {
+    padding: 16px 18px;
+    width: 400px;
+
+    font-size: 16px;
+  }
+
+  .formBtn {
+    padding: 14px 19px;
+    width: 438px;
+
+    font-size: 16px;
+
+    transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1),
+      border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .formBtn:hover {
+    background-color: var(--main-light);
+    color: var(--main);
+    border: 2px solid var(--main);
+  }
+
+  .iconContainer {
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+  }
+
+  .iconPwd {
+    width: 20px;
+    height: 20px;
+  }
+
+  .error {
+    height: 20px;
+    margin: 5px 0;
+  }
 }
