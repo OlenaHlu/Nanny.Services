@@ -70,25 +70,30 @@ const NanniesCard = ({ nanny, isAuthenticated }: NanniesCardProps) => {
       </div>
       <div className={css.mainInfo}>
         <div className={css.headerCard}>
-          <p className={css.text}>nanny</p>
+          <p className={css.text}>Nanny</p>
           <div className={css.listContainer}>
             <ul className={css.listHeader}>
               <li className={css.listItem}>
                 <Icon className={css.iconMap} iconName="map-pin" />
-                {nanny.location}{" "}
+                {nanny.location}
               </li>
               <span className={css.stick}>|</span>
               <li className={css.listItem}>
                 <Icon className={css.iconStar} iconName="star" />
-                {nanny.rating}
+                Rating: {nanny.rating}
               </li>
-              <span className={css.stick}> |</span>
+              <span className={css.stick}>|</span>
               <li className={css.listItem}>
-                Price / 1 hour:{" "}
+                Price / 1 hour:
                 <span className={css.price}>{nanny.price_per_hour}$</span>
               </li>
             </ul>
-            <HeartButton nannyId={nanny.id} isAuthenticated={isAuthenticated} />
+            <div className={css.heartContainer}>
+              <HeartButton
+                nannyId={nanny.id}
+                isAuthenticated={isAuthenticated}
+              />
+            </div>
           </div>
         </div>
         <h3 className={css.name}>{nanny.name}</h3>
