@@ -1,3 +1,4 @@
+/*=================Mobile=================*/
 .rewievList {
   display: flex;
   flex-direction: row;
@@ -7,19 +8,20 @@
 }
 
 .imageContainer {
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: var(--main-light);
 }
+
 .initialName {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: 8px;
 
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1;
   color: var(--main);
 }
@@ -32,14 +34,14 @@
 
 .reviewerName {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: var(--text);
 }
 
 .reviewerRating {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.29;
   color: var(--text);
 
@@ -48,15 +50,50 @@
 }
 
 .ratingIcon {
-  width: 16px;
-  height: 16px;
-  margin-right: 8px;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
 }
 
 .text {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 125%;
+  font-size: 14px;
+  line-height: 1.25;
   color: var(--text-gray);
-  margin-bottom: 25px;
+  margin-bottom: 16px;
+}
+/*=================Tablet=================*/
+@media screen and (min-width: 768px) {
+}
+
+/*=================Desktop=================*/
+@media screen and (min-width: 1440px) {
+  .imageContainer {
+    width: 44px;
+    height: 44px;
+  }
+
+  .initialName {
+    padding: 12px;
+    font-size: 20px;
+  }
+
+  .reviewerName {
+    font-size: 16px;
+  }
+
+  .reviewerRating {
+    font-size: 14px;
+  }
+
+  .ratingIcon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+
+  .text {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
 }

@@ -1,5 +1,6 @@
+/*=================Mobile=================*/
 .filterContainer {
-  width: 1184px;
+  width: 288px;
   display: flex;
   flex-direction: column;
   margin-left: auto;
@@ -18,7 +19,7 @@
 
 .filterBtn {
   position: relative;
-  width: 226px;
+  width: 100%px;
   height: 48px;
   padding: 18px 14px;
   background-color: var(--main);
@@ -51,8 +52,8 @@
 
 .filterList {
   position: absolute;
-  width: 198px;
-  top: 233px;
+  width: 260px;
+  top: 342px;
   box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07);
   background: #fff;
   border-radius: 14px;
@@ -69,11 +70,41 @@
   font-size: 18px;
   line-height: 1.11;
   color: rgba(17, 16, 28, 0.3);
-  cursor: pointer;
-  transition: color 0.2s;
 }
 
-.filterItem:hover,
-.filterItem:active {
-  color: var(--text);
+/*=================Tablet=================*/
+@media screen and (min-width: 768px) {
+  .filterContainer {
+    width: 720px;
+  }
+
+  .filterBtn {
+    width: 226px;
+  }
+
+  .filterList {
+    width: 198px;
+    top: 286px;
+  }
+
+  .filterItem {
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .filterItem:hover,
+  .filterItem:active {
+    color: var(--text);
+  }
+}
+
+/*=================Desktop=================*/
+@media screen and (min-width: 1440px) {
+  .filterContainer {
+    width: 1184px;
+  }
+
+  .filterList {
+    top: 233px;
+  }
 }
