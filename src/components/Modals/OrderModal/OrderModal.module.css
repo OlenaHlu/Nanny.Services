@@ -1,8 +1,9 @@
+/*=================Mobile=================*/
 .modalContent {
   background-color: var(--bg-white);
-  padding: 64px;
-  border-radius: 30px;
-  width: 471px;
+  padding: 24px;
+  border-radius: 25px;
+  width: 240px;
   position: relative;
   color: black;
   margin-top: 120px;
@@ -12,50 +13,42 @@
 }
 
 .close {
-  width: 32px;
-  height: 32px;
-
   position: absolute;
   right: 20px;
   top: 20px;
 }
 
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
   stroke: black;
-  cursor: pointer;
-  transition: stroke 350ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.icon:hover {
-  stroke: #f03f3b;
 }
 
 .formTitle {
   font-weight: 500;
-  font-size: 40px;
+  font-size: 30px;
   line-height: 1.2;
   letter-spacing: -0.05rem;
   color: #11101c;
-  margin-bottom: 20px;
+  margin: 20px 0px;
 }
 
 .formText {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: var(--text-gray);
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .nannyContent {
   display: flex;
+  flex-direction: row;
   gap: 14px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .image {
@@ -80,20 +73,21 @@
 
 .upperContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 8px;
+  margin-bottom: 8px;
 }
 
 .upperInput {
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 12px;
-  padding: 16px 15px 16px 18px;
-  width: 199px;
+  padding: 12px 15px 12px 18px;
+  width: 205px;
   height: 20px;
   outline: transparent;
 
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: var(--text);
 }
@@ -102,7 +96,7 @@
 .lowerInput::placeholder,
 .textarea::placeholder {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: var(--text-gray);
 }
@@ -110,13 +104,13 @@
 .lowerInput {
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 12px;
-  padding: 16px 41px 16px 18px;
-  width: 413px;
+  padding: 12px 15px 12px 18px;
+  width: 205px;
   height: 20px;
   outline: transparent;
 
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: var(--text);
 }
@@ -124,8 +118,8 @@
 .textarea {
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 12px;
-  padding: 16px 38px 80px 18px;
-  width: 416px;
+  padding: 16px 15px 80px 18px;
+  width: 205px;
   height: 20px;
   outline: transparent;
   resize: none;
@@ -139,40 +133,29 @@
 .rightUppContainer {
   display: flex;
   flex-direction: column;
-
-  width: 232px;
+  gap: 8px;
 }
 
 .lowerContainer {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   margin-bottom: 40px;
 }
 
 .sendBtn {
   border-radius: 30px;
-  padding: 16px 217px;
-  width: 472px;
+  padding: 16px;
+  width: 237px;
   height: 52px;
-  margin-top: 40px;
 
   background-color: var(--main);
   color: var(--bg-white);
 
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   letter-spacing: -0.01rem;
-
-  transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.sendBtn:hover {
-  background-color: var(--main-light);
-  color: var(--main);
-  border: 1px solid var(--main);
 }
 
 .error {
@@ -184,8 +167,9 @@
 
 .inputTime {
   position: relative;
-  height: 72px;
+  height: 46px;
 }
+
 .iconBtn {
   position: absolute;
   top: 16px;
@@ -195,15 +179,15 @@
 }
 
 .iconClock {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
 }
 
 .dropDown {
   position: absolute;
   width: 119px;
   right: -2px;
-  top: 60px;
+  top: 50px;
   box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07);
   background: #fff;
   border-radius: 12px;
@@ -212,10 +196,10 @@
 
 .meeting {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .timeList {
@@ -226,18 +210,153 @@
 
 .timeItem {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   text-align: center;
   color: rgba(17, 16, 28, 0.3);
-  cursor: pointer;
-  transition: color 0.2s;
 }
 
-.timeItem:hover {
-  color: var(--text);
+/*=================Tablet=================*/
+@media screen and (min-width: 768px) {
+  .modalContent {
+    padding: 64px;
+    border-radius: 30px;
+    width: 471px;
+  }
+
+  .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: stroke 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .icon:hover {
+    stroke: #f03f3b;
+  }
+
+  .formTitle {
+    font-size: 40px;
+    margin-top: 0px;
+  }
+
+  .formText {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .nannyContent {
+    margin-bottom: 40px;
+  }
+
+  .upperContainer {
+    flex-direction: row;
+  }
+
+  .upperInput {
+    padding: 16px 15px 16px 18px;
+    width: 199px;
+
+    font-size: 16px;
+  }
+
+  .upperInput::placeholder,
+  .lowerInput::placeholder,
+  .textarea::placeholder {
+    font-size: 16px;
+  }
+
+  .lowerInput {
+    padding: 16px 41px 16px 18px;
+    width: 413px;
+
+    font-size: 16px;
+  }
+
+  .textarea {
+    padding: 16px 38px 80px 18px;
+    width: 416px;
+
+    font-size: 16px;
+  }
+
+  .leftUppContainer,
+  .rightUppContainer {
+    display: flex;
+    flex-direction: column;
+
+    width: 232px;
+  }
+
+  .lowerContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  .sendBtn {
+    padding: 16px 217px;
+    width: 472px;
+    height: 52px;
+    margin-top: 40px;
+
+    font-size: 16px;
+
+    transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1),
+      border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sendBtn:hover {
+    background-color: var(--main-light);
+    color: var(--main);
+    border: 1px solid var(--main);
+  }
+
+  .inputTime {
+    position: relative;
+    height: 72px;
+  }
+
+  .iconBtn {
+    top: 16px;
+    right: 16px;
+  }
+
+  .iconClock {
+    width: 20px;
+    height: 20px;
+  }
+
+  .dropDown {
+    top: 60px;
+  }
+
+  .meeting {
+    margin-bottom: 16px;
+  }
+
+  .timeItem {
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .timeItem:hover {
+    color: var(--text);
+  }
+
+  .inputDiv {
+    height: 72px;
+  }
 }
 
-.inputDiv {
-  height: 72px;
+/*=================Desktop=================*/
+@media screen and (min-width: 1440px) {
 }
