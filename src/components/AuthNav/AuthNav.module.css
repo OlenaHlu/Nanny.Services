@@ -40,8 +40,7 @@
 .iconContainer {
   background-color: var(--bg-white);
   border-radius: 10px;
-  width: 35px;
-  height: 35px;
+  padding: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,11 +107,6 @@
   .authBtn:hover {
     background-color: var(--bg-white);
     color: var(--main);
-  }
-
-  .iconContainer {
-    width: 40px;
-    height: 40px;
   }
 
   .userIcon {
