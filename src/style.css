@@ -75,14 +75,13 @@ img {
   border: none;
 }
 
-.Toastify__toast-container {
-  width: 310px;
-  left: 5px;
+.Toastify__toast {
+  width: 300px;
+  right: 10px;
 }
 
 @media screen and (min-width: 768px) {
-  .Toastify__toast-container {
-    width: 768px;
-    left: 50%;
+  .Toastify__toast {
+    width: 380px;
   }
 }
