@@ -78,6 +78,7 @@ img {
 .Toastify__toast {
   width: 300px;
   right: 10px;
+  top: 10px;
 }
 
 @media screen and (min-width: 768px) {
