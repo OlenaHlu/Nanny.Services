@@ -6,5 +6,19 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          firebase: ["firebase/app", "firebase/auth", "firebase/firestore"],
+        },
+      },
+    },
+  },
+  server: {
+    open: true,
+  },
+  optimizeDeps: {
+    include: ["firebase/app", "firebase/auth", "firebase/firestore"],
   },
 });
