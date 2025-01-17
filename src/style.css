@@ -21,8 +21,11 @@
   /* --main: #103931;
   --main-light: rgba(16, 57, 49, 0.2); */
 
-  --main: #116740;
-  --main-light: rgba(58, 105, 26, 0.2);
+  /* --main: #116740;
+  --main-light: rgba(58, 105, 26, 0.2); */
+
+  --main: #942828;
+  --main-light: rgba(105, 33, 26, 0.2);
 }
 
 body {
