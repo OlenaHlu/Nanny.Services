@@ -22,3 +22,6 @@ This project allows users to search for professional babysitters in their area, 
 - Formik
 - Axios
 - Yup
+
+## Author
+Hlushenkova Olena
